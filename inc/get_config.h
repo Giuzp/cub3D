@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub.h                                              :+:      :+:    :+:   */
+/*   get_config.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/02 16:17:44 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/02 16:17:56 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/02 16:15:32 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/02 16:16:20 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB_H
-//defines
-# define CUB_H
-//includes
-# include "get_config.h"
+#ifndef GET_CONFIG_H
+# define GET_CONFIG_H
+
+void	get_config(char **map_path);
 
 #endif

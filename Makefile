@@ -6,7 +6,7 @@
 #    By: dcresce <dcresce@student.42lausanne.c    	+#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/05 16:33:55 by dcresce           #+#    #+#              #
-#    Updated: 2026/10/02 15:58:10 by dcresce          ###   ########.fr        #
+#    Updated: 2026/10/02 16:18:09 by dcresce          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,10 +41,10 @@ LIBFT = $(LIBFT_PATH)libft.a
 MAIN = 00_src/00_main
 
 PARS_DIR = src/parsing/
-PARS = 
+PARS = get_config
 
 CLEANING_DIR = src/cleaning/
-CLEANING = 
+CLEANING = clean_exit
 
 SRC_FILES += $(MAIN)
 SRC_FILES += $(addprefix $(PARS_DIR),$(PARS))
