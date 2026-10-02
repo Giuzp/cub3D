@@ -24,7 +24,7 @@ SRCS_DIR 	= ./
 OBJS_DIR 	= obj/
 CC 			= gcc
 RM 			= rm -f
-CFLAGS 		= -Wall -Wextra -Werror -g
+CFLAGS 		= -Wall -Wextra -Werror -g -fsanitize=address
 
 #mlx
 MLX_DIR = minilibx
