@@ -14,5 +14,12 @@
 
 int	main(int argc, char **argv)
 {
-	
+    t_cube  cube;
+
+	if (argc != 2)
+        return (1);
+    //check .cub extension
+    //check if file exist
+    get_config(argvm cube);
+
 }

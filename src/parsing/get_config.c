@@ -12,7 +12,15 @@
 
 #include "cub.h"
 
-void	get_config(char **map_path)
+void cube_init(t_cube cube)
 {
-	
+    cube = ft_calloc(sizeof(t_cube), 1)
+    if (!cube)
+        exit() ;
+}
+
+void	get_config(char **argv, t_cube cube)
+{
+    cube_init(cube);
+	read_store_cubfile(argv[1], cube);
 }

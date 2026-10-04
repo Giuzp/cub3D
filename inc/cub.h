@@ -16,4 +16,9 @@
 //includes
 # include "get_config.h"
 
+typedef struct  s_cube
+{
+    char    **brut;
+} t_cube
+
 #endif
