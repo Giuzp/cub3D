@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/02 16:15:32 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/02 16:16:20 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/05 20:24:46 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/05 20:24:46 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_CONFIG_H
 # define GET_CONFIG_H
 
-void	get_config(char **map_path);
+void	get_config(char *map_path);
 
 #endif
