@@ -1,5 +1,5 @@
+*.o
+*.a
+*.out
+
 cub
-*/obj/*
-*/libft.a
-*/*.o
-obj/
