@@ -6,7 +6,7 @@
 #    By: dcresce <dcresce@student.42lausanne.c    	+#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/05 16:33:55 by dcresce           #+#    #+#              #
-#    Updated: 2026/10/05 20:40:51 by dcresce          ###   ########.fr        #
+#    Updated: 2026/10/05 22:04:58 by dcresce          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ LIBFT = $(LIBFT_PATH)libft.a
 MAIN = src/main
 
 PARS_DIR = src/parsing/
-PARS = get_config
+PARS = get_config store_map
 
 CLEANING_DIR = src/cleaning/
 CLEANING = clean_exit

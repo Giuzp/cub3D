@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/05 21:17:34 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/05 21:32:28 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/05 22:05:15 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/05 22:07:26 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,12 @@ void	get_config(char *map_path)
 	close(fd);
 	//---------------------------------------------
 	//FIN DE LA VALIDATION
-}
 
-/**
- * @brief	Stores the map layout in an array
- * 
- * @param[in]	fd	File descriptor of the.cub map file
- * @return		A newly allocated char array with the map layout
- * 
- * The caller is responsible for freeing the returned array
- */
-char	**store_map(int fd)
-{
-	
+	//RECUPERATION DE LA MAP
+	//---------------------------------------------
+	char	**map;
+	map = store_map(fd);
+	(void)map;
+	//---------------------------------------------
+	//FIN DE LA RECUPERATION
 }
-
