@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/02 16:13:48 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/02 16:14:13 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/05 20:00:41 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/05 20:01:34 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 int	main(int argc, char **argv)
 {
-	
+	if (argc != 2)
+		return (printf("Args\n"), 0);
 }
