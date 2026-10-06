@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub.h                                              :+:      :+:    :+:   */
+/*   cleaning.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 15:10:22 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 15:10:22 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/06 15:02:39 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/06 15:02:39 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB_H
-//defines
-# define CUB_H
-//includes
-# include <stdio.h>
-# include "libft.h"
-# include "get_config.h"
-# include "structs.h"
-# include "errors.h"
-# include "cleaning.h"
+#ifndef CLEANING_H
+# define CLEANING_H
+
+void	clean_exit(t_error err, char *msg /*, t_config conf, bool clean*/);
 
 #endif
