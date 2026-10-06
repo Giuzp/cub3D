@@ -5,14 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 21:04:57 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 21:05:02 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/06 22:19:47 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/06 22:22:45 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
 static void	check_chars_and_pos(char **map, int p_pos[2], char *p_dir);
+static void	flood_fill(char **map, int x, int y);
+static int	count_lines(char **map);
 
 /**
  * @brief	Validates map shape and content
@@ -26,6 +28,7 @@ static void	check_chars_and_pos(char **map, int p_pos[2], char *p_dir);
 void	validate_map(char **map, int p_pos[2], char *p_dir)
 {
 	check_chars_and_pos(map, p_pos, p_dir);
+	flood_fill(map, p_pos[0], p_pos[1]);
 }
 
 /**
@@ -62,4 +65,37 @@ static void	check_chars_and_pos(char **map, int p_pos[2], char *p_dir)
 	}
 	if (!*p_dir)
 		clean_exit(E_NO_P, NO_P);
+}
+
+
+static void	flood_fill(char **map, int x, int y)
+{
+	if (y < 0 || y >= count_lines(map))
+		clean_exit(E_OPEN_MAP, OPEN_MAP);
+	if (x < 0 || x >= (int)ft_strlen(map[y]))
+		clean_exit(E_OPEN_MAP, OPEN_MAP);
+	if ((map[y][x] == 'f') || map[y][x] == '1')
+		return ;
+	if (ft_strchr("NSWE0", map[y][x]))
+		map[y][x] = 'f';
+	else if ((y == 0) || (y == count_lines(map))
+		|| (x == 0) || (x == (int)ft_strlen(map[y])))
+		clean_exit(E_OPEN_MAP, OPEN_MAP);
+	else if (map[y][x] == ' ')
+		clean_exit(E_HOLE_MAP, HOLE_MAP);
+	flood_fill(map, x + 1, y);
+	flood_fill(map, x - 1, y);
+	flood_fill(map, x, y + 1);
+	flood_fill(map, x, y - 1);
+}
+
+
+static int	count_lines(char **map)
+{
+	int	i;
+	
+	i = 0;
+	while (map[i])
+		i++;
+	return (i);
 }

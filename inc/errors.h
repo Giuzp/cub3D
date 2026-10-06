@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 21:04:21 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 21:20:58 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/06 21:46:26 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/06 21:47:00 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ typedef enum e_error
 	E_CHAR_UN,
 	E_MULT_P,
 	E_NO_P,
-	E_EMPTY_L
+	E_EMPTY_L,
+	E_OPEN_MAP,
+	E_HOLE_MAP
 }	t_error;
 
 //define message for the errors
@@ -45,5 +47,7 @@ typedef enum e_error
 # define MULT_P		"Error! Multiple players in map!"
 # define NO_P		"Error! No player in the map!"
 # define EMPTY_L	"Error! Empty line in map!"
+# define OPEN_MAP	"Error! The map is open!"
+# define HOLE_MAP	"Error! The map has a hole!"
 
 #endif
