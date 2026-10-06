@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structs.h                                          :+:      :+:    :+:   */
+/*   settings.json                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 15:09:08 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 15:09:26 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/06 20:25:40 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/06 20:25:50 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ typedef struct s_config
 	char	*path_so;
 	char	*path_we;
 	char	*path_ea;
-	//floor and cealing colors in 8-bit RGB
+	//floor and ceiling colors in 8-bit RGB
 	int		col_f[3];
 	int		col_c[3];
 	//Player infos
 	float	p_pos[2];
-	char	dir;
+	char	p_dir;
 }	t_config;
 
 #endif

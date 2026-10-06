@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 10:34:03 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 10:34:03 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/06 21:21:13 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/06 21:22:13 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
 static char	*get_map_in_one_string(int fd);
+static void	check_for_empty_lines(char *map_ol);
 
 /**
  * @brief	Stores the map layout in an array
@@ -34,6 +35,7 @@ char	**store_map(int fd)
 	map_one_liner = ft_strtrim(temp, "\n");
 	free(temp);
 	temp = NULL;
+	check_for_empty_lines(map_one_liner);
 	map = ft_split(map_one_liner, '\n');
 	free(map_one_liner);
 	map_one_liner = NULL;
@@ -71,4 +73,23 @@ static char	*get_map_in_one_string(int fd)
 		new_line = gnl(fd);
 	}
 	return (close(fd), free(new_line), line);
+}
+
+static void	check_for_empty_lines(char *map_ol)
+{
+	int i;
+	
+	i = 0;
+	while (map_ol[i])
+	{
+		if (map_ol[i] == '\n')
+		{
+			if (i < (int)ft_strlen(map_ol))
+			{
+				if (map_ol[i + 1] == '\n')
+					clean_exit(E_EMPTY_L, EMPTY_L);
+			}
+		}
+		i++;
+	}
 }

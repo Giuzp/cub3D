@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub.h                                              :+:      :+:    :+:   */
+/*   settings.json                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 15:10:22 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 15:10:22 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/06 20:26:15 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/06 20:26:15 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB_H
 //defines
 # define CUB_H
-//includes
+//libraries includes
 # include <stdio.h>
+# include <stdbool.h>
+
+//file headers
 # include "libft.h"
 # include "get_config.h"
 # include "structs.h"
