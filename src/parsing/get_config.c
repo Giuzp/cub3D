@@ -6,7 +6,7 @@
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 15:16:51 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 15:18:28 by dcresce          ###   ########.ch       */
+/*   Updated: 2026/10/06 15:20:38 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	get_config(char *map_path)
 	if (!ext)
 		clean_exit(E_EXT, EXT);
 	if (ft_strncmp(ext, ".cub", 5))
-	clean_exit(E_EXT, EXT);
+		clean_exit(E_EXT, EXT);
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
 		clean_exit(E_OPEN, OPEN);
