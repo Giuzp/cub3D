@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 21:15:08 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 21:15:08 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/06 21:30:24 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/06 21:30:24 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	get_config(char *map_path)
 	print_map(map);
 	p_dir = '\0';
 	validate_map(map, p_pos, &p_dir);
-	printf("Validated: x=%d, y=%d, dir=%c\n", p_pos[0], p_pos[1], p_dir);
 	free_split(map);
 	//---------------------------------------------
 	//FIN DE LA RECUPERATION ET VALIDATION
