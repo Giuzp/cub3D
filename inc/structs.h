@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 15:00:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 15:00:52 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/06 15:09:08 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/06 15:09:26 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCTS_H$
+#ifndef STRUCTS_H
 # define STRUCTS_H
 
-typedef struct	s_config
+typedef struct s_config
 {
 	//map layout
 	char	**map;
@@ -29,6 +29,5 @@ typedef struct	s_config
 	float	p_pos[2];
 	char	dir;
 }	t_config;
-
 
 #endif

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 14:25:20 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 14:46:27 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/06 15:08:57 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/06 15:08:57 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define ERRORS_H
 
 //enum for the errors
-typedef enum	e_error
+typedef enum e_error
 {
 	MALLOC,
 	ARGS,
