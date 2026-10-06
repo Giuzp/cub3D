@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_config.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 16:15:05 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/02 16:15:16 by dcresce          ###   ########.ch       */
+/*   Updated: 2026/10/06 14:07:47 by jturrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void cube_init(t_cube cube)
 void	get_config(char **argv, t_cube cube)
 {
     cube_init(cube);
-	read_store_cubfile(argv[1], cube);
+	read_store_cubfile(argv[1]);
 }
