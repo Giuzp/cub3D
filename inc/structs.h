@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub.h                                              :+:      :+:    :+:   */
+/*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 15:10:22 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 15:10:22 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/06 15:09:08 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/06 15:09:26 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB_H
-//defines
-# define CUB_H
-//includes
-# include <stdio.h>
-# include "libft.h"
-# include "get_config.h"
-# include "structs.h"
-# include "errors.h"
-# include "cleaning.h"
+#ifndef STRUCTS_H
+# define STRUCTS_H
+
+typedef struct s_config
+{
+	//map layout
+	char	**map;
+	//path to the texture files
+	char	*path_no;
+	char	*path_so;
+	char	*path_we;
+	char	*path_ea;
+	//floor and cealing colors in 8-bit RGB
+	int		col_f[3];
+	int		col_c[3];
+	//Player infos
+	float	p_pos[2];
+	char	dir;
+}	t_config;
 
 #endif

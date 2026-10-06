@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 10:34:18 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 10:35:13 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/05 21:17:34 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/06 15:49:23 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,13 @@ void	get_config(char *map_path)
 
 	ext = ft_strrchr(map_path, '.');
 	if (!ext)
-		return ;
+		clean_exit(E_EXT, EXT);
 	if (ft_strncmp(ext, ".cub", 5))
-		return ;
+		clean_exit(E_EXT, EXT);
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
-		return ;
-	printf("yes\n");
-	//close(fd);
+		clean_exit(E_OPEN, OPEN);
+	close(fd);
 	//---------------------------------------------
 	//FIN DE LA VALIDATION
 
