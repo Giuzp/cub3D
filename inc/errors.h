@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 15:08:57 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 15:08:57 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/06 15:14:51 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/06 15:14:51 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@
 //enum for the errors
 typedef enum e_error
 {
-	MALLOC,
-	ARGS,
-	EXT,
-	OPEN,
-	PATH_M,
-	PATH_W,
-	COL_M,
-	COL_W,
-	SCENE_W
+	E_MALLOC,
+	E_ARGS,
+	E_EXT,
+	E_OPEN,
+	E_PATH_M,
+	E_PATH_W,
+	E_COL_M,
+	E_COL_W,
+	E_SCENE_W
 }	t_error;
 
 //define message for the errors
