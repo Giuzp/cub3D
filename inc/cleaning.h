@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub.h                                              :+:      :+:    :+:   */
+/*   cleaning.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 14:48:24 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 14:48:28 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/06 14:06:24 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/06 14:07:00 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB_H
-//defines
-# define CUB_H
-//includes
-# include "get_config.h"
-# include "structs.h"
-# include "errors.h"
+#ifndef CLEANING_H
+# define CLEANING_H
+
+
 
 #endif
