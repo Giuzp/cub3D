@@ -6,7 +6,7 @@
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 21:17:34 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 15:49:23 by dcresce          ###   ########.ch       */
+/*   Updated: 2026/10/06 15:51:23 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ static void	print_map(char **map);
 */
 void	get_config(char *map_path)
 {
-	//VALIDATION DU FICHIER MAP
-	//---------------------------------------------
 	char	*ext;
 	int		fd;
 
@@ -38,9 +36,6 @@ void	get_config(char *map_path)
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
 		clean_exit(E_OPEN, OPEN);
-	close(fd);
-	//---------------------------------------------
-	//FIN DE LA VALIDATION
 
 	//RECUPERATION DE LA MAP
 	//---------------------------------------------
@@ -50,6 +45,8 @@ void	get_config(char *map_path)
 	free_split(map);
 	//---------------------------------------------
 	//FIN DE LA RECUPERATION
+
+	close(fd);
 }
 
 //HELPER FUNCTIONS TO DESTROY LATER
