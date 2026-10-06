@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 14:48:24 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 15:02:47 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/06 15:10:22 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/06 15:10:22 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 //defines
 # define CUB_H
 //includes
+# include <stdio.h>
+# include "libft.h"
 # include "get_config.h"
 # include "structs.h"
 # include "errors.h"
