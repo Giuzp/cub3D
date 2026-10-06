@@ -6,7 +6,7 @@
 #    By: dcresce <dcresce@student.42lausanne.c    	+#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/05 16:33:55 by dcresce           #+#    #+#              #
-#    Updated: 2026/10/02 16:18:09 by dcresce          ###   ########.fr        #
+#    Updated: 2026/10/05 20:40:51 by dcresce          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,12 +33,12 @@ MLX_INC = -I$(MLX_DIR)
 MLX_LNK = -L$(MLX_DIR) -lXext -lX11 -lm -lbsd
 
 #libft
-LIBFT_PATH = ./libft/
+LIBFT_PATH = libft/
 LIBFT = $(LIBFT_PATH)libft.a
 
 #Sources
 
-MAIN = 00_src/00_main
+MAIN = src/main
 
 PARS_DIR = src/parsing/
 PARS = get_config
@@ -56,11 +56,10 @@ OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRC_FILES)))
 ###
 
 OBJSF 		= .cache_exists
-INCLUDES 	= -I$(INC_DIR)
+INCLUDES 	= -I$(INC_DIR) -I$(LIBFT_PATH)
 
 $(MLX_LIB):
-	@make -C $(MLX_DIR)
-#CC=gcc CFLAGS="-O3 -std=gnu89 -I.."
+	@make -C $(MLX_DIR) CC=gcc CFLAGS="-O3 -std=gnu89 -I.."
 	@echo "mlx compiled"
 
 $(LIBFT):
@@ -68,7 +67,7 @@ $(LIBFT):
 
 all: $(MLX_LIB) ${NAME}
 
-$(NAME): $(OBJS)
+$(NAME): $(LIBFT) $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(MLX_LIB) $(MLX_LNK) $(LIBFT) -o $(NAME)
 	@echo -e "$(GREEN)✓ Build OK: $(NAME)$(RESET)"
 

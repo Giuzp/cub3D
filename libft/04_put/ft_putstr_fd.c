@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_config.h                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/05 20:24:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/05 20:24:46 by dcresce          ###   ########.ch       */
+/*   Created: 2025/11/18 15:06:15 by dcresce           #+#    #+#             */
+/*   Updated: 2025/11/18 15:06:15 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_CONFIG_H
-# define GET_CONFIG_H
+#include "../libft.h"
 
-void	get_config(char *map_path);
+int	ft_putstr_fd(char *s, int fd)
+{
+	int	size;
 
-#endif
+	if (!s)
+		return (ft_putstr_fd("(null)", 1));
+	size = ft_strlen(s);
+	while (*s)
+		write(fd, s++, 1);
+	return (size);
+}

@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_config.h                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/05 20:24:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/05 20:24:46 by dcresce          ###   ########.ch       */
+/*   Created: 2025/11/18 14:48:48 by dcresce           #+#    #+#             */
+/*   Updated: 2025/11/18 14:48:48 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_CONFIG_H
-# define GET_CONFIG_H
+#include "../libft.h"
 
-void	get_config(char *map_path);
-
-#endif
+int	ft_isascii(int c)
+{
+	if ((c < 128) && (c >= 0))
+		return (1);
+	return (0);
+}

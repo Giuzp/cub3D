@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_config.h                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: credomgiu <credomgiu@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/05 20:24:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/05 20:24:46 by dcresce          ###   ########.ch       */
+/*   Created: 2025/10/10 19:46:11 by credomgiu         #+#    #+#             */
+/*   Updated: 2025/10/10 22:23:19 by credomgiu        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_CONFIG_H
-# define GET_CONFIG_H
+#include "../libft.h"
 
-void	get_config(char *map_path);
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+{
+	int		i;
 
-#endif
+	i = 0;
+	while (s[i])
+	{
+		(*f)(i, &s[i]);
+		i++;
+	}
+	s[i] = '\0';
+}

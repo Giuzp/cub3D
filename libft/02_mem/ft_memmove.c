@@ -1,18 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_config.h                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/05 20:24:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/05 20:24:46 by dcresce          ###   ########.ch       */
+/*   Created: 2025/11/18 14:49:52 by dcresce           #+#    #+#             */
+/*   Updated: 2025/11/18 14:49:52 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_CONFIG_H
-# define GET_CONFIG_H
+#include "../libft.h"
 
-void	get_config(char *map_path);
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	unsigned char		*d;
+	const unsigned char	*s;
 
-#endif
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
+	if (dest == src || n == 0)
+		return (dest);
+	if ((d < s) || (d >= (s + n)))
+	{
+		while (n--)
+			*d++ = *s++;
+	}
+	else
+	{
+		d += n - 1;
+		s += n - 1;
+		while (n--)
+			*d-- = *s--;
+	}
+	return (dest);
+}

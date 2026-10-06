@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_config.h                                       :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/05 20:24:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/05 20:24:46 by dcresce          ###   ########.ch       */
+/*   Created: 2025/12/15 14:54:25 by dcresce           #+#    #+#             */
+/*   Updated: 2025/12/15 14:54:37 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_CONFIG_H
-# define GET_CONFIG_H
+#include "../libft.h"
 
-void	get_config(char *map_path);
+int	ft_sqrt(int n)
+{
+	int	x;
+	int	y;
 
-#endif
+	if (n < 0)
+		return (-1);
+	x = n;
+	y = (x + 1) / 2;
+	while (y < x)
+	{
+		x = y;
+		y = (x + n / x) / 2;
+	}
+	return (x);
+}

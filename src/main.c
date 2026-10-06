@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/02 16:13:48 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/02 16:14:13 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/06 15:14:56 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/06 15:36:05 by jturrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,8 @@
 
 int	main(int argc, char **argv)
 {
-    t_cube  cube;
-
 	if (argc != 2)
-        return (1);
-    //check .cub extension
-    //check if file exist
-    get_config(argvm cube);
-
+		clean_exit(E_ARGS, ARGS);
+	get_config(argv[1]);
+	return (0);
 }

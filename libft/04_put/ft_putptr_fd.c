@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_config.h                                       :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/05 20:24:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/05 20:24:46 by dcresce          ###   ########.ch       */
+/*   Created: 2025/11/19 15:33:14 by dcresce           #+#    #+#             */
+/*   Updated: 2025/11/19 15:33:14 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_CONFIG_H
-# define GET_CONFIG_H
+#include "../libft.h"
 
-void	get_config(char *map_path);
+int	ft_putptr_fd(uintptr_t n, int first, int fd)
+{
+	const char	*hex;
+	int			size;
 
-#endif
+	if (!n)
+		return (ft_putstr_fd("(nil)", 1) - 2);
+	if (first)
+		ft_putstr_fd("0x", 1);
+	hex = "0123456789abcdef";
+	size = 0;
+	if (n >= 16)
+		size += ft_putptr_fd(n / 16, 0, fd);
+	size += ft_putchar_fd(hex[n % 16], fd);
+	return (size);
+}

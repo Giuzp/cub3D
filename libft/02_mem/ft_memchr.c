@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_config.h                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/05 20:24:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/05 20:24:46 by dcresce          ###   ########.ch       */
+/*   Created: 2025/10/12 00:17:27 by dcresce           #+#    #+#             */
+/*   Updated: 2025/10/12 00:24:36 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_CONFIG_H
-# define GET_CONFIG_H
+#include "../libft.h"
 
-void	get_config(char *map_path);
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	unsigned char	*s_tmp;
 
-#endif
+	s_tmp = (unsigned char *)s;
+	if (!n)
+		return (NULL);
+	while (n)
+	{
+		if (*s_tmp == (unsigned char)c)
+			return (s_tmp);
+		s_tmp++;
+		n--;
+	}
+	return (NULL);
+}

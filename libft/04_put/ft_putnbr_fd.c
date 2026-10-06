@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_config.h                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/05 20:24:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/05 20:24:46 by dcresce          ###   ########.ch       */
+/*   Created: 2025/11/18 15:20:13 by dcresce           #+#    #+#             */
+/*   Updated: 2025/11/18 15:23:25 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_CONFIG_H
-# define GET_CONFIG_H
+#include "../libft.h"
 
-void	get_config(char *map_path);
+int	ft_putnbr_fd(int n, int fd)
+{
+	long	nb;
+	int		size;
 
-#endif
+	nb = n;
+	size = 0;
+	if (nb < 0)
+	{
+		size += write(fd, "-", 1);
+		nb = -nb;
+	}
+	if (nb >= 10)
+	{
+		size += ft_putnbr_fd(nb / 10, fd);
+		size += ft_putchar_fd((nb % 10) + '0', fd);
+	}
+	else
+		size += ft_putchar_fd(nb + '0', fd);
+	return (size);
+}

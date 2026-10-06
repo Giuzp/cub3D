@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_config.h                                       :+:      :+:    :+:   */
+/*   ft_putnbr_hex_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/05 20:24:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/05 20:24:46 by dcresce          ###   ########.ch       */
+/*   Created: 2025/11/19 15:40:51 by dcresce           #+#    #+#             */
+/*   Updated: 2025/11/19 15:40:51 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_CONFIG_H
-# define GET_CONFIG_H
+#include "../libft.h"
 
-void	get_config(char *map_path);
+int	ft_putnbr_hex_fd(unsigned int n, int caps, int fd)
+{
+	const char	*hex;
+	int			size;
 
-#endif
+	if (!caps)
+		hex = "0123456789abcdef";
+	else
+		hex = "0123456789ABCDEF";
+	size = 0;
+	if (n >= 16)
+		size += ft_putnbr_hex_fd(n / 16, caps, fd);
+	size += ft_putchar_fd(hex[n % 16], fd);
+	return (size);
+}

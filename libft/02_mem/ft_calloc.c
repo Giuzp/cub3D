@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_config.h                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/05 20:24:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/05 20:24:46 by dcresce          ###   ########.ch       */
+/*   Created: 2025/11/18 14:49:43 by dcresce           #+#    #+#             */
+/*   Updated: 2025/11/18 14:49:43 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_CONFIG_H
-# define GET_CONFIG_H
+#include "../libft.h"
 
-void	get_config(char *map_path);
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*pointer;
 
-#endif
+	if (size != 0 && nmemb > SIZE_MAX / size)
+		return (NULL);
+	pointer = malloc(nmemb * size);
+	if (!pointer)
+		return (NULL);
+	ft_memset(pointer, '\0', nmemb * size);
+	return (pointer);
+}

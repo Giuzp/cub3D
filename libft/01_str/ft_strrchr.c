@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_config.h                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/05 20:24:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/05 20:24:46 by dcresce          ###   ########.ch       */
+/*   Created: 2025/11/18 14:49:23 by dcresce           #+#    #+#             */
+/*   Updated: 2025/11/18 14:49:23 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_CONFIG_H
-# define GET_CONFIG_H
+#include "../libft.h"
 
-void	get_config(char *map_path);
+char	*ft_strrchr(const char *s, int c)
+{
+	char	*found;
 
-#endif
+	found = NULL;
+	while (*s)
+	{
+		if (*s == (char)c)
+			found = (char *)s;
+		s++;
+	}
+	if (found != NULL)
+		return (found);
+	if ((char)c == '\0')
+		return ((char *)s);
+	return (NULL);
+}
