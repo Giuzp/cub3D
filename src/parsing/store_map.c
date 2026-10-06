@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/05 21:56:01 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/05 22:04:35 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/06 10:34:03 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/06 10:34:03 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	**store_map(int fd)
 
 	temp = get_map_in_one_string(fd);
 	if (!temp)
-		exit(1);
+		exit(2);
 	map_one_liner = ft_strtrim(temp, "\n");
 	free(temp);
 	temp = NULL;
