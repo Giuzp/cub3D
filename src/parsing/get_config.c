@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 15:16:51 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 15:20:38 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/06 15:23:17 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/06 15:23:40 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 */
 void	get_config(char *map_path)
 {
-	//VALIDATION DU FICHIER MAP
-	//---------------------------------------------
 	char	*ext;
 	int		fd;
 
@@ -35,7 +33,8 @@ void	get_config(char *map_path)
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
 		clean_exit(E_OPEN, OPEN);
+
+	//SPACE FOR NEW FUNCTIONS
+	
 	close(fd);
-	//---------------------------------------------
-	//FIN DE LA VALIDATION
 }
