@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 21:29:18 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 21:29:59 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/07 20:32:13 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/07 20:32:19 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ static char	*get_map_in_one_string(int fd)
  */
 static void	check_for_empty_lines(char *map_ol)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (map_ol[i])
 	{

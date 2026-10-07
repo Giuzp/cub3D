@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 22:19:47 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 22:22:45 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/07 20:32:39 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/07 20:32:44 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	check_chars_and_pos(char **map, int p_pos[2], char *p_dir);
 static void	flood_fill(char **map, int x, int y);
-static int	count_lines(char **map);
 
 /**
  * @brief	Validates map shape and content
@@ -27,8 +26,18 @@ static int	count_lines(char **map);
  */
 void	validate_map(char **map, int p_pos[2], char *p_dir)
 {
+	char	**flood;
+	int		check_x;
+	int		check_y;
+
 	check_chars_and_pos(map, p_pos, p_dir);
-	flood_fill(map, p_pos[0], p_pos[1]);
+	flood = dup_array(map);
+	flood_fill(flood, p_pos[0], p_pos[1]);
+	check_x = 0;
+	check_y = 0;
+	while (check_for_missing_spots(flood, &check_x, &check_y))
+		flood_fill(flood, check_x, check_y);
+	free_split(flood);
 }
 
 /**
@@ -67,7 +76,17 @@ static void	check_chars_and_pos(char **map, int p_pos[2], char *p_dir)
 		clean_exit(E_NO_P, NO_P);
 }
 
-
+/**
+ * @brief	Flood fill algorithm to check the map enclosure
+ * 
+ * @param[in]	map	The map to check
+ * @param[in]	x	Start x position
+ * @param[in]	y	Start y position
+ * 
+ * Recursively visits the four neighboring cells, stopping at walls or
+ * visited cells. Exits with an error if it reaches a space or goes
+ * outside the map. Disconnected areas are not checked by this call.
+ */
 static void	flood_fill(char **map, int x, int y)
 {
 	if (y < 0 || y >= count_lines(map))
@@ -78,24 +97,10 @@ static void	flood_fill(char **map, int x, int y)
 		return ;
 	if (ft_strchr("NSWE0", map[y][x]))
 		map[y][x] = 'f';
-	else if ((y == 0) || (y == count_lines(map))
-		|| (x == 0) || (x == (int)ft_strlen(map[y])))
-		clean_exit(E_OPEN_MAP, OPEN_MAP);
-	else if (map[y][x] == ' ')
+	if (map[y][x] == ' ')
 		clean_exit(E_HOLE_MAP, HOLE_MAP);
 	flood_fill(map, x + 1, y);
 	flood_fill(map, x - 1, y);
 	flood_fill(map, x, y + 1);
 	flood_fill(map, x, y - 1);
-}
-
-
-static int	count_lines(char **map)
-{
-	int	i;
-	
-	i = 0;
-	while (map[i])
-		i++;
-	return (i);
 }

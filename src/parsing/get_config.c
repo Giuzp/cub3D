@@ -5,15 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 21:30:24 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 21:30:24 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/07 20:30:20 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/07 20:31:25 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
-
-//HELPER FUNCTIONS TO DESTROY LATER
-static void	print_map(char **map);
 
 /**
  * @brief	Loads the map configuration from a .cub file
@@ -43,7 +40,6 @@ void	get_config(char *map_path)
 	int		p_pos[2];
 	char	p_dir;
 	map = store_map(fd);
-	print_map(map);
 	p_dir = '\0';
 	validate_map(map, p_pos, &p_dir);
 	free_split(map);
@@ -55,10 +51,11 @@ void	get_config(char *map_path)
 
 //HELPER FUNCTIONS TO DESTROY LATER
 //---------------------------------------------------------------
-static void	print_map(char **map)
+void	print_map(char **map)
 {
-	int i = 0;
+	int	i = 0;
 
+	printf("\n");
 	while (map[i])
 	{
 		printf("%s\n", map[i]);
