@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+ /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   errors.h                                           :+:      :+:    :+:   */
@@ -27,11 +27,16 @@ typedef enum e_error
 	E_SCENE_W
 }	t_error;
 
+typedef struct s_exit_code {
+	int		code;
+	char	*message;
+} t_exit_code;
+
 //define message for the errors
 # define MALLOC		"Error! Failed malloc!"
 # define ARGS		"Error! Wrong number of argument!"
 # define EXT		"Error! Wrong file extension!"
-# define OPEN		"Error! Scene file doesn't extst or can't be open!"
+# define OPEN		"Error! Scene file doesn't exist or can't be open!"
 # define PATH_M		"Error! Missing path in scene file!"
 # define PATH_W		"Error! Path file doesn't exist or can't be open!"
 # define COL_M		"Error! Missing color in scene file!"

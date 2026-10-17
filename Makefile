@@ -24,7 +24,7 @@ SRCS_DIR 	= ./
 OBJS_DIR 	= obj/
 CC 			= gcc
 RM 			= rm -f
-CFLAGS 		= -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS 		= -Wall -Wextra -Werror -g #-fsanitize=address
 
 #mlx
 MLX_DIR = minilibx
@@ -41,7 +41,11 @@ LIBFT = $(LIBFT_PATH)libft.a
 MAIN = src/main
 
 PARS_DIR = src/parsing/
-PARS = get_config
+PARS = get_config \
+read_store_cubfile \
+utils_parsing \
+checking_parsing \
+check_map_is_ok
 
 CLEANING_DIR = src/cleaning/
 CLEANING = clean_exit
@@ -88,8 +92,8 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@make -C $(LIBFT_PATH) fclean
-	@make -C $(MLX_DIR) clean
+	@make -C $(LIBFT_PATH) fclean 
+	@make -C $(MLX_DIR) clean 
 	@echo -e "$(RED)✗ $(NAME) removed$(RESET)"
 
 re: fclean all

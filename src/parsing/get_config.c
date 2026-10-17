@@ -6,7 +6,7 @@
 /*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 15:23:17 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 15:37:08 by jturrel          ###   ########.fr       */
+/*   Updated: 2026/10/07 16:17:10 by jturrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ void	get_config(char *map_path)
 
 	ext = ft_strrchr(map_path, '.');
 	if (!ext)
-		clean_exit(E_EXT, EXT);
+		clean_exit(E_EXT, EXT, NULL,NULL);
 	if (ft_strncmp(ext, ".cub", 5))
-		clean_exit(E_EXT, EXT);
+		clean_exit(E_EXT, EXT, NULL,NULL);
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
-		clean_exit(E_OPEN, OPEN);
+		clean_exit(E_OPEN, OPEN, NULL, NULL);
 
 	//SPACE FOR NEW FUNCTIONS
-	read_store_cubfile(argv[1]);
+	read_store_cubfile(fd, map_path);
     
 	close(fd);
 }

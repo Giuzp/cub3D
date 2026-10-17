@@ -1,85 +1,74 @@
 #include "cub.h"
 
-int check_if_path_exit(char *line, int i)
+int parse_line(char *line, t_exit_code *exit_code);
+char    **read_fd(int fd, char *map_path);
+
+int    read_store_cubfile(int fd, char *map_path)
 {
-    int fd;
-    char *tmp;
-
-
-    i = crop_isspace(line);
-
-    fd = open()
-}
-
-int check_identifier(char *line, int *i)
-{
-    char    *tmp;
-
-    if (line[i] == 'C' || line[i] == 'F')
-        return (0);
-    tmp = ft_strchr(line, ' ');
-    if (!ft_strncmp(tmp, "NO ", 3));
-        return (0);
-    if (!ft_strncmp(tmp, "SO ", 3));
-        return (0);
-    if (!ft_strncmp(tmp, "WE ", 3));
-        return (0);
-    if (!ft_strncmp(tmp, "EA ", 3));
-        return (0);
-    return (1);
-}
-int crop_isspace(char *line)
-{
-    while(line[i] == ' ')
-        i++;
-    return (i);
-}
-
-int parse_line(char *line)
-{
-    int i;
-
-    i = crop_isspace(line);
-    if (check_identifier(line, *i))
-        return (1);
-    if (check_if_path_exit(line, i))
-        return (1);
+    read_fd(fd, map_path);
     return (0);
 }
 
-char    **read_fd(char *cube_file)
+char    **read_fd(int fd, char *map_path)
 {
-    int     i;    
-    int     fd;
+    int     i;
+    int     len;
     char    *line;
     char    **buffer;
+    t_exit_code	*exit_code;
 
+    exit_code = ft_calloc(1, sizeof(t_exit_code));
+    if (exit_code == NULL)
+        return NULL;
+    buffer = NULL;
     i = 0;
-    fd = open(cube_file, O_RDONLY);
-    line = get_next_line(fd);
+    len = check_map_is_ok(fd, exit_code);
+    fd = open(map_path, O_RDONLY);
+    line = gnl(fd);
+    buffer = malloc(sizeof(char*) * (len + 1));
+    if (!buffer)
+        return (NULL);
     if (!line)
     {
         close(fd);
-        return (NULL);
+        clean_exit(E_OPEN, OPEN, NULL, NULL);
     }
     while (line)
     {
-        if(parse_line(line))
+        if (parse_line(line, exit_code))
         {
             close(fd);
-            clean_and_exit();
+            free(line);
+            clean_exit(exit_code->code, exit_code->message, 0, exit_code);
         }
-           buffer[i++] = line
-        line = get_next_line(fd);
+        buffer[i] = malloc(sizeof(char) * (ft_strlen(line) + 1));
+        buffer[i++] = line;
+        line = gnl(fd);
     }
     close(fd);
     return (buffer);
 }
 
-int    read_store_cubfile(char *cube_file, t_cube cube)
+int parse_line(char *line, t_exit_code *exit_code)
 {
-    read_fd(cube_file);
-    if (!buffer)
-        return (exit); // fonction a faire
+    int i;
+    char    *buffer;
 
+    i = 0;
+    if (line[0] == '\n')
+        return (0);
+    buffer = NULL;
+    buffer = ft_strtrim(line, " ");
+    if (!buffer)
+    {
+        exit_code_init(exit_code, E_MALLOC, MALLOC);
+        return (1);
+    }
+    if (check_identifier(buffer, &i, exit_code))
+        return (free_and_null(&buffer), 1);
+    free_and_null(&buffer);
+    return (0);
 }
+
+
+
