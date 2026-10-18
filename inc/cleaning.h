@@ -15,5 +15,8 @@
 
 void	clean_exit(t_error err, char *msg, t_config *conf, t_exit_code *exit_code);
 void	free_and_null(char **str);
+void close_exit_clean(int fd,int err_code, char* err_msg, t_exit_code *exit_code);
+void clean_while_read(int fd, char *line, char **buffer, t_exit_code *exit_code);
+
 
 #endif
