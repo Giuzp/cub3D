@@ -25,15 +25,17 @@ int	check_map_is_ok(int fd, t_exit_code *exit_code)
 	char	*line;
 	t_check_id	id[6];
 
-	(void)exit_code;
+	i = 0;
 	init_id(id);
 	line = gnl(fd);
 	if (!line || line[0] == 1)
 	{
 		close(fd);
 		if (line[0] == 1)
-			clean_exit(E_OPEN, OPEN, NULL, NULL); // change message
-		clean_exit(E_OPEN, OPEN, NULL, NULL);
+			exit_code_init(exit_code, E_WRO_O, WRO_O);
+		else
+			exit_code_init(exit_code, E_EMPTY, EMPTY);
+		return (1);
 	}
 	while (line[0] != '1')
 	{
@@ -52,24 +54,46 @@ int	check_map_is_ok(int fd, t_exit_code *exit_code)
 		else if (line[0] != '\n')
 		{
 			close(fd);
-			clean_exit(E_OPEN, OPEN, NULL, NULL);
+			exit_code_init(exit_code, E_SCENE_W, SCENE_W);
+			return (1);
 		}
+		free(line);
 		line = gnl(fd);
 		i++;
 	}
 	close(fd);
+	free(line);
 	if (id->no_id == false)
+	{
+		exit_code_init(exit_code, E_WRO_O, WRO_O);
 		return(1);
+	}
 	if (id->so_id == false)
+	{
+		exit_code_init(exit_code, E_WRO_O, WRO_O);
 		return(1);
+	}
 	if (id->we_id == false)
+	{
+		exit_code_init(exit_code, E_WRO_O, WRO_O);
 		return(1);
+	}
 	if (id->ea_id == false)
+	{
+		exit_code_init(exit_code, E_WRO_O, WRO_O);
 		return(1);
+	}
 	if (id->f_id == false)
+	{
+		exit_code_init(exit_code, E_WRO_O, WRO_O);
 		return(1);
+	}
 	if (id->c_id == false)
+	{
+		exit_code_init(exit_code, E_WRO_O, WRO_O);
 		return(1);
+	}
+	// a faire un if dans un if dans un if
 	return(i);
 }
 

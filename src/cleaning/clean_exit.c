@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+
 #include "cub.h"
 
 void	free_and_null(char **str)
@@ -25,9 +27,11 @@ void	free_and_null(char **str)
 void	clean_exit(t_error err, char *msg,  t_config *conf, t_exit_code *exit_code)
 {
 	int	error_code;
+	char	*tmp_msg;
 
+	tmp_msg = msg;
 	error_code  = err;
-	printf("%s\n", msg);
+	printf("%s\n", tmp_msg);
 	if (exit_code)
 		free(exit_code);
 	if (conf)
