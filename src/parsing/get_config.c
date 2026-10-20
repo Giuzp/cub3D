@@ -24,7 +24,9 @@ void	get_config(char *map_path)
 {
 	char	*ext;
 	int		fd;
+	t_config	*config;
 
+	config = NULL;
 	ext = ft_strrchr(map_path, '.');
 	if (!ext)
 		clean_exit(E_EXT, EXT, NULL, NULL);
@@ -34,6 +36,7 @@ void	get_config(char *map_path)
 	if (fd < 0)
 		clean_exit(E_OPEN, OPEN, NULL, NULL);
 	// SPACE FOR NEW FUNCTIONS
-	read_store_cubfile(fd, map_path);
+	config = read_store_cubfile(fd, map_path);
+	clean_config(config);
 	close(fd);
 }

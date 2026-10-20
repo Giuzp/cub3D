@@ -52,6 +52,21 @@ void	clean_exit(t_error err, char *msg, t_config *conf,
 	if (exit_code)
 		free(exit_code);
 	if (conf)
-		free(conf);
+		clean_config(conf);
 	exit(error_code);
+}
+
+void	clean_config(t_config *config)
+{
+	if (config->map)
+		free_split(config->map);
+	if (config->path_no)
+		free_and_null(&config->path_no);
+	if (config->path_so)
+		free_and_null(&config->path_so);
+	if (config->path_we)
+		free_and_null(&config->path_we);
+	if (config->path_ea)
+		free_and_null(&config->path_ea);
+	free(config);
 }

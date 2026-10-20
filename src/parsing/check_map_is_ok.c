@@ -57,7 +57,7 @@ int	check_id(char **line, t_check_id *id, int fd)
 	while (*line[0] != '1')
 	{
 		if (*line[0] == ' ')
-			*line = trim_line(*line);
+			*line = trim_line(*line); // leak ?
 		if (*line[0] == 'N')
 			id->no_id = true;
 		else if (*line[0] == 'S')

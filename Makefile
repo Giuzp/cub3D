@@ -45,7 +45,8 @@ PARS = get_config \
 read_store_cubfile \
 utils_parsing \
 checking_parsing \
-check_map_is_ok
+check_map_is_ok \
+config_init
 
 CLEANING_DIR = src/cleaning/
 CLEANING = clean_exit

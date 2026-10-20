@@ -1,6 +1,6 @@
 #include "cub.h"
 
-int		parse_line(char *line, t_exit_code *exit_code);
+int		parse_line(char **line, t_exit_code *exit_code);
 char	**read_fd(int fd, char *map_path, t_exit_code *exit_code);
 int		parse_colour_and_texture(int fd, char **buffer, t_exit_code *exit_code);
 
@@ -9,21 +9,24 @@ int		parse_colour_and_texture(int fd, char **buffer, t_exit_code *exit_code);
  * for putting values from map in our struct.
  */
 
-int	read_store_cubfile(int fd, char *map_path)
+t_config	*read_store_cubfile(int fd, char *map_path)
 {
 	char		**buffer;
 	t_exit_code	*exit_code;
+	t_config	*config;
 
+	config = NULL;
 	exit_code = ft_calloc(1, sizeof(t_exit_code));
 	if (exit_code == NULL)
 		clean_exit(E_MALLOC, MALLOC, NULL, NULL);
 	buffer = NULL;
 	buffer = read_fd(fd, map_path, exit_code);
-	if (!buffer)
-		return (0);
+	config = config_init(buffer, exit_code); // if config = nULL ....
 	free_split(buffer);
+	if (!config)
+		clean_exit(exit_code->code, exit_code->message, config, exit_code);
 	free(exit_code);
-	return (0);
+	return (config);
 }
 
 /*
@@ -41,7 +44,7 @@ char	**read_fd(int fd, char *map_path, t_exit_code *exit_code)
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
 		clean_exit(E_OPEN, OPEN, 0, exit_code);
-	buffer = calloc(sizeof(char *), (6));
+	buffer = calloc(sizeof(char *), (6 + 1));
 	if (!buffer)
 		close_exit_clean(fd, E_MALLOC, MALLOC, exit_code);
 	parse_colour_and_texture(fd, buffer, exit_code);
@@ -65,7 +68,7 @@ int	parse_colour_and_texture(int fd, char **buffer, t_exit_code *exit_code)
 		close_exit_clean(fd, E_OPEN, OPEN, exit_code);
 	while (line && i < 6)
 	{
-		if (parse_line(line, exit_code))
+		if (parse_line(&line, exit_code))
 			clean_while_read(fd, line, buffer, exit_code);
 		if (line[0] != '\n')
 		{
@@ -85,16 +88,18 @@ int	parse_colour_and_texture(int fd, char **buffer, t_exit_code *exit_code)
  * In case the line are full of space, we first trim the line.
  * Then we check the identifier.
  */
-int	parse_line(char *line, t_exit_code *exit_code)
+int	parse_line(char **line, t_exit_code *exit_code)
 {
 	int		i;
 	char	*buffer;
 
 	i = 0;
-	if (line[0] == '\n')
+	if (*line[0] == '\n')
 		return (0);
 	buffer = NULL;
-	buffer = ft_strtrim(line, " ");
+	buffer = ft_strtrim(*line, " ");
+	free_and_null(line);
+	*line = ft_strdup(buffer); // leak ?
 	if (!buffer)
 	{
 		exit_code_init(exit_code, E_MALLOC, MALLOC);

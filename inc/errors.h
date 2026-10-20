@@ -45,7 +45,7 @@ typedef struct s_exit_code
 # define PATH_W "Error! Path file doesn't exist or can't be open!"
 # define COL_M "Error! Missing color in scene file!"
 # define COL_W "Error! Wrong color in scene file!"
-# define WRO_O "Error! Wrong order!"
+# define WRO_O "Error! Wrong order or missing identifier!"
 # define SCENE_W "Error! Unidentified identifier in scene file!"
 
 #endif
