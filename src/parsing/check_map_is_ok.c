@@ -1,14 +1,43 @@
 #include "cub.h"
 
-typedef struct s_check_id {
-	bool	no_id;
-	bool	so_id;
-	bool	we_id;
-	bool	ea_id;
-	bool	f_id;
-	bool	c_id;
-} t_check_id;
+void	init_id(t_check_id *id);
+int		check_id(char **line, t_check_id *id, int fd);
+int		check_flag_id(t_check_id *id, t_exit_code *exit_code);
+void	close_and_free(int fd, char *line);
 
+/*
+ * In this function we will check if there is all the information we need
+ * before map shows up.
+ */
+int	check_map_is_ok(int fd, t_exit_code *exit_code)
+{
+	char		*line;
+	t_check_id	id[6];
+
+	init_id(id);
+	line = gnl(fd);
+	if (!line || line[0] == 1)
+	{
+		close(fd);
+		if (line[0] == 1)
+			exit_code_init(exit_code, E_WRO_O, WRO_O);
+		else
+			exit_code_init(exit_code, E_EMPTY, EMPTY);
+		return (1);
+	}
+	if (check_id(&line, id, fd))
+	{
+		close_and_free(fd, line);
+		exit_code_init(exit_code, E_SCENE_W, SCENE_W);
+		return (1);
+	}
+	close_and_free(fd, line);
+	return (check_flag_id(id, exit_code));
+}
+
+/*
+ * initialisation of our ID struct, all variable are a flag
+ */
 void	init_id(t_check_id *id)
 {
 	id->no_id = false;
@@ -19,10 +48,16 @@ void	init_id(t_check_id *id)
 	id->c_id = false;
 }
 
+/*
+ * everytime an identifier is find a flag up and if not
+ * correct identifier we exit.
+ */
 int	check_id(char **line, t_check_id *id, int fd)
 {
 	while (*line[0] != '1')
 	{
+		if (*line[0] == ' ')
+			*line = trim_line(*line);
 		if (*line[0] == 'N')
 			id->no_id = true;
 		else if (*line[0] == 'S')
@@ -43,6 +78,20 @@ int	check_id(char **line, t_check_id *id, int fd)
 	return (0);
 }
 
+/*
+ * function for close fd and free line if needed.
+ */
+void	close_and_free(int fd, char *line)
+{
+	close(fd);
+	if (line)
+		free(line);
+}
+
+/*
+ * Last check, if all flag are up than means we have all the
+ * information before map. If not we initialized exit code struct.
+ */
 int	check_flag_id(t_check_id *id, t_exit_code *exit_code)
 {
 	if (id->no_id == true)
@@ -65,39 +114,5 @@ int	check_flag_id(t_check_id *id, t_exit_code *exit_code)
 		}
 	}
 	exit_code_init(exit_code, E_WRO_O, WRO_O);
-	return(1);
+	return (1);
 }
-
-void	close_and_free(int fd, char *line)
-{
-	close(fd);
-	if (line)
-		free(line);
-}
-
-int	check_map_is_ok(int fd, t_exit_code *exit_code)
-{
-	char	*line;
-	t_check_id	id[6];
-
-	init_id(id);
-	line = gnl(fd);
-	if (!line || line[0] == 1)
-	{
-		close(fd);
-		if (line[0] == 1)
-			exit_code_init(exit_code, E_WRO_O, WRO_O);
-		else
-			exit_code_init(exit_code, E_EMPTY, EMPTY);
-		return (1);
-	}
-	if (check_id(&line, id, fd))
-	{
-		close_and_free(fd, line);
-		exit_code_init(exit_code, E_SCENE_W, SCENE_W);
-		return (1);
-	}
-	close_and_free(fd, line);
-	return(check_flag_id(id, exit_code));
-}
-
