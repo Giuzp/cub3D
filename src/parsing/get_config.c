@@ -6,7 +6,7 @@
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:36:47 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/22 13:37:35 by dcresce          ###   ########.ch       */
+/*   Updated: 2026/10/22 13:40:56 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@
  */
 void	get_config(char *map_path)
 {
+	t_config	*config;
 	char		*ext;
 	int			fd;
-	t_config	*config;
+	char		**map;
+	int			p_pos[2];
 
 	config = NULL;
 	ext = ft_strrchr(map_path, '.');
@@ -35,20 +37,10 @@ void	get_config(char *map_path)
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
 		clean_exit(E_OPEN, OPEN);
-
-	//SPACE FOR NEW FUNCTIONS
 	config = read_store_cubfile(fd, map_path);
-	//RECUPERATION ET VALIDATION DE LA MAP
-	//---------------------------------------------
-	char	**map;
-	int		p_pos[2];
-	char	p_dir;
 	map = store_map(fd);
-	p_dir = '\0';
-	validate_map(map, p_pos, &p_dir);
+	validate_map(map, p_pos, &(config->p_dir));
 	free_split(map);
-	//---------------------------------------------
-	//FIN DE LA RECUPERATION ET VALIDATION
 	clean_config(config);
 	close(fd);
 }

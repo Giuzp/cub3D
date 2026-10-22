@@ -35,6 +35,7 @@ t_config	*config_init(char **buffer, t_exit_code *exit_code)
 		}
 		i++;
 	}
+	config->p_dir = '\0';
 	return (config);
 }
 
