@@ -6,7 +6,7 @@
 /*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 15:23:17 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/20 15:05:55 by jturrel          ###   ########.fr       */
+/*   Updated: 2026/10/22 11:39:24 by jturrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
  */
 void	get_config(char *map_path)
 {
-	char	*ext;
-	int		fd;
+	char		*ext;
+	int			fd;
 	t_config	*config;
 
 	config = NULL;

@@ -6,7 +6,7 @@
 /*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 20:24:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/20 15:07:00 by jturrel          ###   ########.fr       */
+/*   Updated: 2026/10/22 11:38:41 by jturrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 
 # include "errors.h"
 
-void	get_config(char *map_path);
-t_config		*read_store_cubfile(int fd, char *map_path);
-int		crop_isspace(char *line, int i);
-void	exit_code_init(t_exit_code *exit_code, int code_error, char *message);
-int		check_if_path_exist(char *line, int i, t_exit_code *exit_code);
-int		check_color(char *line, int i, t_exit_code *exit_code);
-int		check_other_identifier(char *line);
-int		check_identifier(char *line, int *i, t_exit_code *exit_code);
-int		check_map_is_ok(int fd, t_exit_code *exit_code);
-char	*trim_line(char *line);
+void		get_config(char *map_path);
+t_config	*read_store_cubfile(int fd, char *map_path);
+int			crop_isspace(char *line, int i);
+void		exit_code_init(t_exit_code *exit_code, int code_error,
+				char *message);
+int			check_if_path_exist(char *line, int i, t_exit_code *exit_code);
+int			check_color(char *line, int i, t_exit_code *exit_code);
+int			check_other_identifier(char *line);
+int			check_identifier(char *line, int *i, t_exit_code *exit_code);
+int			check_map_is_ok(int fd, t_exit_code *exit_code);
+char		*trim_line(char *line);
 t_config	*config_init(char **buffer, t_exit_code *exit_code);
 
 #endif
