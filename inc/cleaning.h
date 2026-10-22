@@ -3,16 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   cleaning.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 15:02:39 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/06 15:02:39 by dcresce          ###   ########.ch       */
+/*   Updated: 2026/10/22 11:38:33 by jturrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLEANING_H
 # define CLEANING_H
 
-void	clean_exit(t_error err, char *msg /*, t_config conf, bool clean*/);
+# include "errors.h"
+# include "structs.h"
+
+void	clean_exit(t_error err, char *msg, t_config *conf,
+			t_exit_code *exit_code);
+void	free_and_null(char **str);
+void	close_exit_clean(int fd, int err_code, char *err_msg,
+			t_exit_code *exit_code);
+void	clean_while_read(int fd, char *line, char **buffer,
+			t_exit_code *exit_code);
+void	clean_config(t_config *config);
+int		only_numbers(char *str, t_exit_code *exit_code);
 
 #endif
