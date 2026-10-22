@@ -1,3 +1,5 @@
+#include <string.h>
+
 #include "cub.h"
 
 int		parse_line(char **line, t_exit_code *exit_code);
@@ -72,7 +74,7 @@ int	parse_colour_and_texture(int fd, char **buffer, t_exit_code *exit_code)
 			clean_while_read(fd, line, buffer, exit_code);
 		if (line[0] != '\n')
 		{
-			buffer[i] = ft_strdup(line);
+			buffer[i] = strndup(line, ft_strlen(line) - 1); //TODO creer la fonction
 			if (!buffer[i])
 				clean_while_read(fd, line, buffer, exit_code);
 			i++;

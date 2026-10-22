@@ -47,25 +47,36 @@ int	essential_data(char *line)
 	return (i);
 }
 
-int	put_color_data(char *line, t_config *config, int i, t_exit_code *exit_code)
+int	only_numbers(char *str, t_exit_code *exit_code)
 {
-	char	**buffer;
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+		{
+			exit_code_init(exit_code, E_COL_W, COL_W);
+			return (1);
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	atoi_color_data(char **buffer, char *line, t_config *config, t_exit_code *exit_code)
+{
 	int	j;
-	int	check;
+	int check;
 
 	j = 0;
-	buffer = ft_split(line + i, ',');
-	if (!buffer)
-	{
-		exit_code_init(exit_code, E_MALLOC, MALLOC);
-		return (1);
-	}
 	while (buffer[j])
 	{
+		if (only_numbers(buffer[j], exit_code))
+			return (1);
 		check = ft_atoi(buffer[j]);
 		if (check < 0 || check > 255)
 		{
-			free_split(buffer);
 			exit_code_init(exit_code, E_COL_W, COL_W);
 			return (1);
 		}
@@ -75,6 +86,21 @@ int	put_color_data(char *line, t_config *config, int i, t_exit_code *exit_code)
 			config->col_c[j] = check;
 		j++;
 	}
+	return (0);
+}
+
+int	put_color_data(char *line, t_config *config, int i, t_exit_code *exit_code)
+{
+	char	**buffer;
+
+	buffer = ft_split(line + i, ',');
+	if (!buffer)
+	{
+		exit_code_init(exit_code, E_MALLOC, MALLOC);
+		return (1);
+	}
+	if (atoi_color_data(buffer, line, config, exit_code))
+		return (free_split(buffer), 1);
 	free_split(buffer);
 	buffer = NULL;
 	return (0);
