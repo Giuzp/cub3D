@@ -1,17 +1,14 @@
 #include "cub.h"
-#include <string.h>
 
-int			put_data_on_config(char *line, t_config *config,
-				t_exit_code *exit_code);
-int			atoi_color_data(char **buffer, char *line, t_config *config,
-				t_exit_code *exit_code);
-int			essential_data(char *line);
-int			put_color_data(char *line, t_config *config, int i,
-				t_exit_code *exit_code);
+int	put_data_on_config(char *line, t_config *config, t_exit_code *exit_code);
+int	atoi_color_data(char **buffer, char *line, t_config *config,
+	t_exit_code *exit_code);
+int	essential_data(char *line);
+int	put_color_data(char *line, t_config *config, int i,t_exit_code *exit_code);
 
 /*
 
-	* this is the main funtion for adding data from our buffer to our main struct "config"
+	* this is the main function for adding data from our buffer to our main struct "config"
  */
 t_config	*config_init(char **buffer, t_exit_code *exit_code)
 {

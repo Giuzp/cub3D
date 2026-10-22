@@ -5,13 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/22 13:34:58 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/22 13:35:52 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/22 14:03:23 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/22 14:03:52 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_CONFIG_H
 # define GET_CONFIG_H
+
+# include "cub.h"
 
 //get config from the .cub file
 void	get_config(char *map_path);

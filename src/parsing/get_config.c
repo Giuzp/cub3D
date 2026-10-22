@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_config.c                                       :+:      :+:    :+:   */
+/*   settings.json                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/22 13:36:47 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/22 13:40:56 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/22 14:14:16 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/22 14:14:16 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	get_config(char *map_path)
 		clean_exit(E_EXT, EXT, NULL, NULL);
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
-		clean_exit(E_OPEN, OPEN);
+		clean_exit(E_OPEN, OPEN, NULL, NULL);
 	config = read_store_cubfile(fd, map_path);
 	map = store_map(fd);
 	validate_map(map, p_pos, &(config->p_dir));

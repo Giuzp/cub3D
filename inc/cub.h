@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/22 13:30:43 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/22 13:31:28 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/22 14:13:35 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/22 14:13:35 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,14 @@
 //libraries includes
 # include <stdio.h>
 # include <stdbool.h>
+# include <unistd.h>
+# include <string.h>
 
 //file headers
-# include <stdio.h>
 # include "errors.h"
 # include "libft.h"
-# include "get_config.h"
-# include "libft.h"
 # include "structs.h"
-# include "unistd.h"
-
+# include "cleaning.h"
+# include "get_config.h"
 
 #endif
