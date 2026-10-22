@@ -6,7 +6,7 @@
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 20:32:13 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/07 20:32:19 by dcresce          ###   ########.ch       */
+/*   Updated: 2026/10/22 14:20:02 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	**store_map(int fd)
 
 	temp = get_map_in_one_string(fd);
 	if (!temp)
-		exit(2);
+		clean_exit(E_MALLOC, MALLOC, NULL, NULL);
 	map_one_liner = ft_strtrim(temp, "\n");
 	free(temp);
 	temp = NULL;
@@ -58,8 +58,10 @@ static char	*get_map_in_one_string(int fd)
 
 	new_line = gnl(fd);
 	if (!new_line)
-		exit (1);
+		clean_exit(E_MALLOC, MALLOC, NULL, NULL);
 	line = ft_strdup("");
+	if (!line)
+		clean_exit(E_MALLOC, MALLOC, NULL, NULL);
 	while (new_line)
 	{
 		temp = line;
@@ -92,7 +94,7 @@ static void	check_for_empty_lines(char *map_ol)
 			if (i < (int)ft_strlen(map_ol))
 			{
 				if (map_ol[i + 1] == '\n')
-					clean_exit(E_EMPTY_L, EMPTY_L);
+					clean_exit(E_EMPTY_L, EMPTY_L, NULL, NULL);
 			}
 		}
 		i++;

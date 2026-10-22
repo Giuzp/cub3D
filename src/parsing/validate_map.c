@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/07 20:32:39 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/07 20:32:44 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/22 14:20:40 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/22 14:20:40 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ static void	check_chars_and_pos(char **map, int p_pos[2], char *p_dir)
 		while (map[i][j])
 		{
 			if (!ft_strchr("01NSWE ", map[i][j]))
-				clean_exit(E_CHAR_UN, CHAR_UN);
+				clean_exit(E_CHAR_UN, CHAR_UN, NULL, NULL);
 			if (ft_strchr("NSWE", map[i][j]))
 			{
 				if (*p_dir)
-					clean_exit(E_MULT_P, MULT_P);
+					clean_exit(E_MULT_P, MULT_P, NULL, NULL);
 				p_pos[0] = j;
 				p_pos[1] = i;
 				*p_dir = map[i][j];
@@ -73,7 +73,7 @@ static void	check_chars_and_pos(char **map, int p_pos[2], char *p_dir)
 		i++;
 	}
 	if (!*p_dir)
-		clean_exit(E_NO_P, NO_P);
+		clean_exit(E_NO_P, NO_P, NULL, NULL);
 }
 
 /**
@@ -90,15 +90,15 @@ static void	check_chars_and_pos(char **map, int p_pos[2], char *p_dir)
 static void	flood_fill(char **map, int x, int y)
 {
 	if (y < 0 || y >= count_lines(map))
-		clean_exit(E_OPEN_MAP, OPEN_MAP);
+		clean_exit(E_OPEN_MAP, OPEN_MAP, NULL, NULL);
 	if (x < 0 || x >= (int)ft_strlen(map[y]))
-		clean_exit(E_OPEN_MAP, OPEN_MAP);
+		clean_exit(E_OPEN_MAP, OPEN_MAP, NULL, NULL);
 	if ((map[y][x] == 'f') || map[y][x] == '1')
 		return ;
 	if (ft_strchr("NSWE0", map[y][x]))
 		map[y][x] = 'f';
 	if (map[y][x] == ' ')
-		clean_exit(E_HOLE_MAP, HOLE_MAP);
+		clean_exit(E_HOLE_MAP, HOLE_MAP, NULL, NULL);
 	flood_fill(map, x + 1, y);
 	flood_fill(map, x - 1, y);
 	flood_fill(map, x, y + 1);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/07 20:29:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/07 20:30:00 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/22 14:20:33 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/22 14:20:33 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	**dup_array(char **array)
 	len = count_lines(array);
 	dup = ft_calloc(sizeof(char *), len + 1);
 	if (!dup)
-		clean_exit(E_MALLOC, MALLOC);
+		clean_exit(E_MALLOC, MALLOC, NULL, NULL);
 	i = -1;
 	while (array[++i])
 	{
@@ -55,7 +55,7 @@ char	**dup_array(char **array)
 		if (!dup[i])
 		{
 			free_split(dup);
-			clean_exit(E_MALLOC, MALLOC);
+			clean_exit(E_MALLOC, MALLOC, NULL, NULL);
 		}
 		while (array[i][++j])
 			dup[i][j] = array[i][j];
