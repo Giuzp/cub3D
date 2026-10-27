@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/22 14:03:23 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/22 14:03:52 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/27 21:04:39 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/27 21:04:39 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "cub.h"
 
 //get config from the .cub file
-void	get_config(char *map_path);
+t_config	*get_config(char *map_path);
 
 //file store
 t_config	*read_store_cubfile(int fd, char *map_path);

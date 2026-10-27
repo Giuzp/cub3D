@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/22 13:31:49 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/22 13:34:46 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/27 20:44:35 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/27 20:45:14 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,18 @@ typedef enum e_error
 	E_NO_P,
 	E_EMPTY_L,
 	E_OPEN_MAP,
-	E_HOLE_MAP
-}			t_error;
+	E_HOLE_MAP,
+	E_MLX_INIT,
+	E_WIN_FAIL,
+	E_IMG_FAIL,
+	E_ADDR_FAIL
+}	t_error;
 
 typedef struct s_exit_code
 {
 	int		code;
 	char	*message;
-}			t_exit_code;
+}	t_exit_code;
 
 //define message for the errors
 # define MALLOC		"Error! Failed malloc!"
@@ -59,5 +63,11 @@ typedef struct s_exit_code
 # define EMPTY_L	"Error! Empty line in map!"
 # define OPEN_MAP	"Error! The map is open!"
 # define HOLE_MAP	"Error! The map has a hole!"
+
+// mlx errors
+# define MLX_INIT	"Error! MLX failed to initialize!"
+# define WIN_FAIL	"Error! Failed to create MLX window!"
+# define IMG_FAIL	"Error! Failed to create MLX image!"
+# define ADDR_FAIL	"Error! Failed to access image pixel data!"
 
 #endif

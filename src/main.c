@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 15:14:56 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/22 11:40:44 by jturrel          ###   ########.fr       */
+/*   Created: 2026/10/27 21:08:16 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/27 21:09:16 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 int	main(int argc, char **argv)
 {
+	t_config	*conf;
 	if (argc != 2)
 		clean_exit(E_ARGS, ARGS, NULL, NULL);
-	get_config(argv[1]);
+	conf = get_config(argv[1]);
+	init_mlx(conf);
+	init_image(conf);
+	mlx_put_image_to_window(conf->mlx.mlx, conf->mlx.win,
+		conf->mlx.frame.img, 0, 0);
 	return (0);
 }

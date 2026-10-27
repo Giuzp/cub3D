@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dcresce <dcresce@student.42lausanne.c    	+#+  +:+       +#+         #
+#    By: dcresce <dcresce@student.42lausanne.ch>   	+#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/05 16:33:55 by dcresce           #+#    #+#              #
-#    Updated: 2026/10/22 13:30:27 by dcresce          ###   ########.fr        #
+#    Updated: 2026/10/27 20:13:23 by dcresce          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ YELLOW	= \033[0;33m
 RESET	= \033[0m
 
 #Standard
+
+.DEFAULT_GOAL := all
 
 NAME		= cub
 INC_DIR		= inc
@@ -48,12 +50,16 @@ checking_parsing \
 check_map_is_ok \
 config_init
 
+MLX_SRC_DIR = src/mlx/
+MLX = mlx_init
+
 CLEANING_DIR = src/cleaning/
 CLEANING = clean_exit
 
 SRC_FILES += $(MAIN)
 SRC_FILES += $(addprefix $(PARS_DIR),$(PARS))
 SRC_FILES += $(addprefix $(CLEANING_DIR),$(CLEANING))
+SRC_FILES += $(addprefix $(MLX_SRC_DIR),$(MLX))
 
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRC_FILES)))
@@ -61,18 +67,18 @@ OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRC_FILES)))
 ###
 
 OBJSF 		= .cache_exists
-INCLUDES 	= -I$(INC_DIR) -I$(LIBFT_PATH)
+INCLUDES 	= -I$(INC_DIR) -I$(LIBFT_PATH) $(MLX_INC)
 
 $(MLX_LIB):
-	@make -C $(MLX_DIR) CC=gcc CFLAGS="-O3 -std=gnu89 -I.."
+	@$(MAKE) -C $(MLX_DIR) CC=gcc CFLAGS="-O3 -std=gnu89 -I.."
 	@echo "mlx compiled"
 
 $(LIBFT):
-	@make -C $(LIBFT_PATH) all
+	@$(MAKE) -C $(LIBFT_PATH) all
 
 all: $(MLX_LIB) ${NAME}
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(LIBFT) $(MLX_LIB) $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(MLX_LIB) $(MLX_LNK) $(LIBFT) -o $(NAME)
 	@echo -e "$(GREEN)✓ Build OK: $(NAME)$(RESET)"
 
@@ -83,18 +89,19 @@ $(OBJSF):
 	@mkdir -p $(OBJS_DIR)
 	@mkdir -p $(OBJS_DIR)$(PARS_DIR)
 	@mkdir -p $(OBJS_DIR)$(CLEANING_DIR)
+	@mkdir -p $(OBJS_DIR)$(MLX_SRC_DIR)
 
 clean:
 	@$(RM) -rf $(OBJS_DIR)
 	@$(RM) -f $(OBJSF)
-	@make -C $(LIBFT_PATH) clean
-	@make -C $(MLX_DIR) clean
+	@$(MAKE) -C $(LIBFT_PATH) clean
+	@$(MAKE) -C $(MLX_DIR) clean
 	@echo -e "$(RED)✗ Objects removed$(RESET)"
 
 fclean: clean
 	@rm -f $(NAME)
-	@make -C $(LIBFT_PATH) fclean 
-	@make -C $(MLX_DIR) clean 
+	@$(MAKE) -C $(LIBFT_PATH) fclean 
+	@$(MAKE) -C $(MLX_DIR) clean 
 	@echo -e "$(RED)✗ $(NAME) removed$(RESET)"
 
 re: fclean all

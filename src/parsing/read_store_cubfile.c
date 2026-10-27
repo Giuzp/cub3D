@@ -46,7 +46,7 @@ char	**read_fd(int fd, char *map_path, t_exit_code *exit_code)
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
 		clean_exit(E_OPEN, OPEN, 0, exit_code);
-	buffer = calloc(sizeof(char *), (6 + 1));
+	buffer = ft_calloc(sizeof(char *), (6 + 1));
 	if (!buffer)
 		close_exit_clean(fd, E_MALLOC, MALLOC, exit_code);
 	parse_colour_and_texture(fd, buffer, exit_code);

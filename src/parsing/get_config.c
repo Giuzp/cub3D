@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   settings.json                                      :+:      :+:    :+:   */
+/*   get_config.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/22 14:14:16 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/22 14:14:16 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/27 21:14:14 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/27 21:14:19 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
+
+static t_config	*conf_init(void);
 
 /**
  * @brief	Loads the map configuration from a .cub file
@@ -20,15 +22,14 @@
  *
  * The caller is responsible for freeing the returned configuration
  */
-void	get_config(char *map_path)
+t_config	*get_config(char *map_path)
 {
-	t_config	*config;
+	t_config	*conf;
 	char		*ext;
 	int			fd;
 	char		**map;
 	int			p_pos[2];
 
-	config = NULL;
 	ext = ft_strrchr(map_path, '.');
 	if (!ext)
 		clean_exit(E_EXT, EXT, NULL, NULL);
@@ -37,12 +38,23 @@ void	get_config(char *map_path)
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
 		clean_exit(E_OPEN, OPEN, NULL, NULL);
-	config = read_store_cubfile(fd, map_path);
+	conf = conf_init();
+	//conf = read_store_cubfile(fd, map_path);
 	map = store_map(fd);
-	validate_map(map, p_pos, &(config->p_dir));
-	free_split(map);
-	clean_config(config);
+	validate_map(map, p_pos, &(conf->p_dir));
+	conf->map = map;
 	close(fd);
+	return (conf);
+}
+
+static t_config	*conf_init(void)
+{
+	t_config	*conf;
+
+	conf = ft_calloc(1, sizeof(*conf));
+	if (!conf)
+		clean_exit(E_MALLOC, MALLOC, NULL, NULL);
+	return (conf);
 }
 
 //HELPER FUNCTIONS TO DESTROY LATER

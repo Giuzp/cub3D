@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/22 14:13:35 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/22 14:13:35 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/27 20:39:58 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/27 20:40:06 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@
 # include <string.h>
 
 //file headers
-# include "errors.h"
 # include "libft.h"
+# include "mlx.h"
+# include "errors.h"
 # include "structs.h"
 # include "cleaning.h"
 # include "get_config.h"
+# include "mlx_init.h"
 
 #endif

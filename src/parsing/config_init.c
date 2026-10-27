@@ -17,7 +17,7 @@ t_config	*config_init(char **buffer, t_exit_code *exit_code)
 
 	i = 0;
 	config = NULL;
-	config = calloc(1, sizeof(*config));
+	config = ft_calloc(1, sizeof(*config));
 	if (!config)
 	{
 		exit_code_init(exit_code, E_MALLOC, MALLOC);

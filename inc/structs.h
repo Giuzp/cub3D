@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   settings.json                                      :+:      :+:    :+:   */
+/*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 20:25:40 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/22 13:36:31 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/27 20:26:39 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/27 20:26:39 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,22 @@ typedef struct s_check_id
 	bool	c_id;
 }			t_check_id;
 
+typedef struct s_image
+{
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}	t_image;
+
+typedef struct s_mlx
+{
+	void	*mlx;
+	void	*win;
+	t_image	frame;
+}	t_mlx;
+
 typedef struct s_config
 {
 	// map layout
@@ -38,8 +54,10 @@ typedef struct s_config
 	int		col_f[3];
 	int		col_c[3];
 	// Player infos
-	float	p_pos[2];
+	double	p_pos[2];
 	char	p_dir;
+	// mlx image data
+	t_mlx	mlx;
 }	t_config;
 
 #endif
