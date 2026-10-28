@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/27 20:26:39 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/27 20:26:39 by dcresce          ###   ########.ch       */
+/*   Created: 2026/10/28 17:49:37 by dcresce           #+#    #+#             */
+/*   Updated: 2026/10/28 17:52:44 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,37 @@ typedef struct s_mlx
 	t_image	frame;
 }	t_mlx;
 
+typedef struct	s_minimap
+{
+	int		width;			//map size in pixels
+	int		height;
+	int		tile_size;		//size of a tile in pixels
+	//dir
+	bool	enabled;		//is minimap displayed?
+	char	**minimap;
+	char	**discovered;	//Discovered tiles map
+}	t_minimap;
+
+
 typedef struct s_config
 {
 	// map layout
-	char	**map;
+	char		**map;
 	// path to the texture files
-	char	*path_no;
-	char	*path_so;
-	char	*path_we;
-	char	*path_ea;
+	char		*path_no;
+	char		*path_so;
+	char		*path_we;
+	char		*path_ea;
 	//floor and ceiling colors in 8-bit RGB
-	int		col_f[3];
-	int		col_c[3];
+	int			col_f[3];
+	int			col_c[3];
 	// Player infos
-	double	p_pos[2];
-	char	p_dir;
+	double		p_pos[2];
+	char		p_dir;
 	// mlx image data
-	t_mlx	mlx;
+	t_mlx		mlx;
+	// minimap
+	t_minimap	mp;
 }	t_config;
 
 #endif
