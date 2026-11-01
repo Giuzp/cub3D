@@ -6,7 +6,7 @@
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 18:25:56 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/28 18:26:13 by dcresce          ###   ########.ch       */
+/*   Updated: 2026/11/01 18:01:59 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int	main(int argc, char **argv)
 	mlx_key_hook(conf->mlx.win, key_hook, conf);
 	mlx_loop_hook(conf->mlx.mlx, render_frame, conf);
 	mlx_hook(conf->mlx.win, 17, 0, close_window, conf);
-	render_frame(conf->mlx.mlx);
+	mlx_loop(conf->mlx.mlx);
 	return (0);
 }
