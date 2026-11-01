@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/28 17:49:37 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/28 17:52:44 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/01 18:04:43 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/01 18:04:47 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_mlx
 	t_image	frame;
 }	t_mlx;
 
-typedef struct	s_minimap
+typedef struct s_minimap
 {
 	int		width;			//map size in pixels
 	int		height;
@@ -51,7 +51,6 @@ typedef struct	s_minimap
 	char	**minimap;
 	char	**discovered;	//Discovered tiles map
 }	t_minimap;
-
 
 typedef struct s_config
 {

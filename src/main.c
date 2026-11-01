@@ -6,7 +6,7 @@
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 18:25:56 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/01 18:01:59 by dcresce          ###   ########.ch       */
+/*   Updated: 2026/11/01 18:03:51 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_config	*conf;
+
 	if (argc != 2)
 		clean_exit(E_ARGS, ARGS, NULL, NULL);
 	conf = get_config(argv[1]);

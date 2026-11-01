@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/28 18:28:40 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/28 18:29:29 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/01 18:07:22 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/01 18:07:34 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ int	key_hook(int k, t_config *conf)
 int	close_window(t_config *conf)
 {
 	mlx_loop_end(conf->mlx.mlx);
-	return 0;
+	return (0);
 }

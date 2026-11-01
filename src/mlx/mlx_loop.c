@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/28 18:29:57 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/28 18:30:06 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/01 18:07:01 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/01 18:07:01 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,3 @@ int	render_frame(t_config *conf)
 	}
 	return (0);
 }
-
-

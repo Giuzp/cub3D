@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/28 17:31:27 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/28 17:35:29 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/01 18:08:09 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/01 18:08:09 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	init_image(t_config *conf)
 	if (!frame->img)
 		clean_exit(E_IMG_FAIL, IMG_FAIL, conf, NULL);
 	frame->addr = mlx_get_data_addr(frame->img, &frame->bpp,
-		&frame->line_len, &frame->endian);
+			&frame->line_len, &frame->endian);
 	if (!frame->addr)
 	{
 		mlx_destroy_image(conf->mlx.mlx, frame->img);
