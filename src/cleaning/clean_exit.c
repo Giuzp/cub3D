@@ -3,42 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   clean_exit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 15:01:05 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/20 15:07:10 by jturrel          ###   ########.fr       */
+/*   Created: 2026/11/01 21:39:27 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/01 21:42:19 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 #include <string.h>
-
-void	close_exit_clean(int fd, int err_code, char *err_msg,
-		t_exit_code *exit_code)
-{
-	close(fd);
-	clean_exit(err_code, err_msg, 0, exit_code);
-}
-
-void	clean_while_read(int fd, char *line, char **buffer,
-		t_exit_code *exit_code)
-{
-	close(fd);
-	free(line);
-	free_split(buffer);
-	if (exit_code->code != 0)
-		clean_exit(exit_code->code, exit_code->message, 0, exit_code);
-	clean_exit(E_MALLOC, MALLOC, 0, exit_code);
-}
-
-void	free_and_null(char **str)
-{
-	if (*str)
-	{
-		free(*str);
-		*str = NULL;
-	}
-}
 
 void	clean_exit(t_error err, char *msg, t_config *conf,
 		t_exit_code *exit_code)
@@ -58,15 +31,29 @@ void	clean_exit(t_error err, char *msg, t_config *conf,
 
 void	clean_config(t_config *config)
 {
+	if (!config)
+		return ;
+	clean_mlx(&config->mlx);
 	if (config->map)
 		free_split(config->map);
-	if (config->path_no)
-		free_and_null(&config->path_no);
-	if (config->path_so)
-		free_and_null(&config->path_so);
-	if (config->path_we)
-		free_and_null(&config->path_we);
-	if (config->path_ea)
-		free_and_null(&config->path_ea);
+	free_and_null(&config->path_no);
+	free_and_null(&config->path_so);
+	free_and_null(&config->path_we);
+	free_and_null(&config->path_ea);
 	free(config);
+}
+
+void	clean_mlx(t_mlx *mlx)
+{
+	if (!mlx->mlx)
+		return ;
+	if (mlx->frame.img)
+		mlx_destroy_image(mlx->mlx, mlx->frame.img);
+	ft_bzero(&mlx->frame, sizeof(mlx->frame));
+	if (mlx->win)
+		mlx_destroy_window(mlx->mlx, mlx->win);
+	mlx->win = NULL;
+	mlx_destroy_display(mlx->mlx);
+	free(mlx->mlx);
+	mlx->mlx = NULL;
 }

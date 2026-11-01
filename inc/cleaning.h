@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cleaning.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/06 15:02:39 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/22 11:38:33 by jturrel          ###   ########.fr       */
+/*   Created: 2026/11/01 21:43:16 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/01 21:43:16 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ void	clean_while_read(int fd, char *line, char **buffer,
 			t_exit_code *exit_code);
 void	clean_config(t_config *config);
 int		only_numbers(char *str, t_exit_code *exit_code);
+void	clean_mlx(t_mlx *mlx);
 
 #endif

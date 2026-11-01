@@ -6,7 +6,7 @@
 #    By: dcresce <dcresce@student.42lausanne.ch>   	+#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/05 16:33:55 by dcresce           #+#    #+#              #
-#    Updated: 2026/11/01 17:58:02 by dcresce          ###   ########.fr        #
+#    Updated: 2026/11/01 21:37:49 by dcresce          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ MLX_SRC_DIR = src/mlx/
 MLX = mlx_init mlx_keys mlx_loop
 
 CLEANING_DIR = src/cleaning/
-CLEANING = clean_exit
+CLEANING = clean_exit clean_helpers
 
 SRC_FILES += $(MAIN)
 SRC_FILES += $(addprefix $(PARS_DIR),$(PARS))

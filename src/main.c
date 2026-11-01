@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/28 18:25:56 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/01 18:03:51 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/01 21:45:23 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/01 21:45:23 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int	main(int argc, char **argv)
 	mlx_loop_hook(conf->mlx.mlx, render_frame, conf);
 	mlx_hook(conf->mlx.win, 17, 0, close_window, conf);
 	mlx_loop(conf->mlx.mlx);
+	clean_config(conf);
 	return (0);
 }
