@@ -6,7 +6,7 @@
 #    By: dcresce <dcresce@student.42lausanne.ch>   	+#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/05 16:33:55 by dcresce           #+#    #+#              #
-#    Updated: 2026/10/27 20:13:23 by dcresce          ###   ########.fr        #
+#    Updated: 2026/11/01 17:58:02 by dcresce          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS_DIR 	= ./
 OBJS_DIR 	= obj/
 CC 			= gcc
 RM 			= rm -f
-CFLAGS 		= -Wall -Wextra -Werror -g #-fsanitize=address
+CFLAGS 		= -Wall -Wextra -Werror -std=c99 -g #-fsanitize=address
 
 #mlx
 MLX_DIR = minilibx
@@ -44,14 +44,14 @@ MAIN = src/main
 
 PARS_DIR = src/parsing/
 PARS = get_config store_map validate_map validate_map_helpers \
-read_store_cubfile \
+#read_store_cubfile \
 utils_parsing \
 checking_parsing \
 check_map_is_ok \
 config_init
 
 MLX_SRC_DIR = src/mlx/
-MLX = mlx_init
+MLX = mlx_init mlx_keys mlx_loop
 
 CLEANING_DIR = src/cleaning/
 CLEANING = clean_exit

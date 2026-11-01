@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_init.h                                         :+:      :+:    :+:   */
+/*   mlx_loop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/28 18:29:38 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/28 18:29:38 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/01 17:50:23 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/01 17:50:23 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 void	init_mlx(t_config *conf);
 void	init_image(t_config *conf);
 // loops
-int		mlx_loop(t_config *conf);
+int		render_frame(t_config *conf);
 int		key_hook(int k, t_config *conf);
 int		close_window(t_config *conf);
 

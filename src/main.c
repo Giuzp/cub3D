@@ -23,8 +23,8 @@ int	main(int argc, char **argv)
 	mlx_put_image_to_window(conf->mlx.mlx, conf->mlx.win,
 		conf->mlx.frame.img, 0, 0);
 	mlx_key_hook(conf->mlx.win, key_hook, conf);
-	mlx_loop_hook(conf->mlx.mlx, mlx_loop, conf);
+	mlx_loop_hook(conf->mlx.mlx, render_frame, conf);
 	mlx_hook(conf->mlx.win, 17, 0, close_window, conf);
-	mlx_loop(conf->mlx.mlx);
+	render_frame(conf->mlx.mlx);
 	return (0);
 }

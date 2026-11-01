@@ -12,7 +12,7 @@
 
 #include "cub.h"
 
-int	mlx_loop(t_config *conf)
+int	render_frame(t_config *conf)
 {
 	if (conf->mp.enabled)
 	{
