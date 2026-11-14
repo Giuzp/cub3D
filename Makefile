@@ -63,6 +63,9 @@ SRC_FILES += $(addprefix $(MLX_SRC_DIR),$(MLX))
 
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRC_FILES)))
+DEPS = $(OBJS:.o=.d)
+
+-include $(DEPS)
 
 ###
 
@@ -83,7 +86,7 @@ $(NAME): $(LIBFT) $(MLX_LIB) $(OBJS)
 	@echo -e "$(GREEN)✓ Build OK: $(NAME)$(RESET)"
 
 $(OBJS_DIR)%.o : $(SRCS_DIR)%.c | $(OBJSF)
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@$(CC) $(CFLAGS) -MMD -MP $(INCLUDES) -c $< -o $@
 
 $(OBJSF):
 	@mkdir -p $(OBJS_DIR)
