@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/01 18:05:23 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/01 18:05:30 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/18 22:26:57 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/18 22:27:05 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define KD		100
 // other button
 # define ESC	65307
+# define KEY_M	109
 
 // init mlx
 void	init_mlx(t_config *conf);

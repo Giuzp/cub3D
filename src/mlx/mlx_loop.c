@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/01 18:07:01 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/01 18:07:01 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/18 22:32:10 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/18 22:34:35 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,19 @@
 
 int	render_frame(t_config *conf)
 {
+	static bool	mp_rendered = false;
+
 	if (conf->mp.enabled)
 	{
-		//display minimap
+		if (!mp_rendered)
+		{
+			render_minimap(conf);
+			mp_rendered = true;
+		}
 	}
 	else
 	{
+		mp_rendered = false;
 		//display game
 	}
 	return (0);

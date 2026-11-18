@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/18 21:59:53 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/18 22:00:00 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/18 22:31:49 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/18 22:31:49 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		clean_exit(E_ARGS, ARGS, NULL, NULL);
 	conf = get_config(argv[1]);
-	render_minimap(conf);
 	init_mlx(conf);
 	init_image(conf);
 	mlx_put_image_to_window(conf->mlx.mlx, conf->mlx.win,
