@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/18 22:11:17 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/18 22:15:34 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/18 22:22:20 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/18 22:23:48 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	render_minimap(t_config *conf)
 	//======================================
 	//INIT AND FILL THE MINIMAP
 	conf->mp.minimap = init_minimap();
+	if (!conf->mp.minimap)
+		clean_exit(E_MALLOC, MALLOC, conf, NULL);
 	GenerateMinimapBuffer(conf);
 	print_minimap(conf->mp.minimap);
 	//END OF INIT AND FILL THE MINIMAP
@@ -29,6 +31,13 @@ void	render_minimap(t_config *conf)
 	//RENDER THE MINIMAP
 
 	//END OF RENDER THE MINIMAP
+	//======================================
+
+	//======================================
+	//FREE THE MINIMAP
+	free_split(conf->mp.minimap);
+	conf->mp.minimap = NULL;
+	//END OF FREE THE MINIMAP
 	//======================================
 }
 

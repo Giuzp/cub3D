@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/27 21:14:14 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/27 21:14:19 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/18 22:18:31 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/18 22:18:36 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ t_config	*get_config(char *map_path)
 	//conf = read_store_cubfile(fd, map_path);
 	map = store_map(fd);
 	validate_map(map, p_pos, &(conf->p_dir));
+	conf->p_pos[0] = p_pos[0] + 0.5;
+	conf->p_pos[1] = p_pos[1] + 0.5;
 	conf->map = map;
 	close(fd);
 	return (conf);
