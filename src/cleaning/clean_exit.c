@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/01 21:39:27 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/01 21:42:19 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/19 12:01:53 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/19 12:04:33 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	clean_config(t_config *config)
 	clean_mlx(&config->mlx);
 	if (config->map)
 		free_split(config->map);
+	if (&config->mp)
+		clean_minimap(config->mp);
 	free_and_null(&config->path_no);
 	free_and_null(&config->path_so);
 	free_and_null(&config->path_we);
@@ -56,4 +58,12 @@ void	clean_mlx(t_mlx *mlx)
 	mlx_destroy_display(mlx->mlx);
 	free(mlx->mlx);
 	mlx->mlx = NULL;
+}
+
+void	clean_minimap(t_minimap mp)
+{
+	if (mp.discovered)
+		free_split(mp.discovered);
+	if (mp.minimap)
+		free_split(mp.minimap);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/01 21:43:16 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/01 21:43:16 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/19 12:04:44 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/19 12:04:44 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ void	clean_while_read(int fd, char *line, char **buffer,
 void	clean_config(t_config *config);
 int		only_numbers(char *str, t_exit_code *exit_code);
 void	clean_mlx(t_mlx *mlx);
+void	clean_minimap(t_minimap mp);
 
 #endif
