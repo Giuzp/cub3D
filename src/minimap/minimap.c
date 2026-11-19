@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/18 22:22:20 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/18 22:23:48 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/19 11:54:53 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/19 11:56:06 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 static void	GenerateMinimapBuffer(t_config *conf);
 static void	print_minimap(char **buffer);
 
+
+/**
+ * @brief	Renders the minimap in the window
+ * 
+ * @param[in]	conf	cub3D configuration struct
+ */
 void	render_minimap(t_config *conf)
 {
 	//======================================

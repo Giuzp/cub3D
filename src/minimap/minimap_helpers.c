@@ -5,13 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/18 22:08:43 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/18 22:08:47 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/19 11:57:21 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/19 11:58:30 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
+/**
+ * @brief	Initialize minimap array
+ * 
+ * @return	The allocated minimap array
+ * 
+ * The caller is responsible for freeing the returned configuration
+ */
 char	**init_minimap(void)
 {
 	char	**minimap;
