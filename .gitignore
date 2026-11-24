@@ -5,5 +5,6 @@
 .vscode
 minilibx/test/mlx-test
 agent.md
+CMakeLists.txt
 
 cub
