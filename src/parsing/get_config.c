@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_config.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 11:56:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/19 11:57:06 by dcresce          ###   ########.ch       */
+/*   Updated: 2026/11/24 17:49:39 by jturrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_config	*get_config(char *map_path)
 		clean_exit(E_OPEN, OPEN, NULL, NULL);
 	//to remove later
 	conf = conf_init();
-	//conf = read_store_cubfile(fd, map_path);
+	conf = read_store_cubfile(fd, map_path);
 	map = store_map(fd);
 	validate_map(map, p_pos, &(conf->p_dir));
 	conf->p_pos[0] = p_pos[0] + 0.5;

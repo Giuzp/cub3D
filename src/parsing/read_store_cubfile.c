@@ -54,6 +54,8 @@ char	**read_fd(int fd, char *map_path, t_exit_code *exit_code)
 	return (buffer);
 }
 
+
+
 /*
  * During GNL, we parse directly the line, if not correct we exit
  * and free everything. Else if correct, we put in buffer by a dup for
@@ -74,7 +76,7 @@ int	parse_colour_and_texture(int fd, char **buffer, t_exit_code *exit_code)
 			clean_while_read(fd, line, buffer, exit_code);
 		if (line[0] != '\n')
 		{
-			buffer[i] = strndup(line, ft_strlen(line) - 1);
+			buffer[i] = ft_strndup(line, ft_strlen(line) - 1);
 				// TODO creer la fonction
 			if (!buffer[i])
 				clean_while_read(fd, line, buffer, exit_code);
