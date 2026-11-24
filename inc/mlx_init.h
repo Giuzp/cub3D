@@ -5,17 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/24 11:34:09 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/24 11:34:31 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/24 20:54:39 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/24 20:54:39 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MLX_INIT_H
 // defines
 # define MLX_INIT_H
-// window size
-# define LENGTH	1280
-# define WIDTH	720
 // keycodes
 // arrow buttons
 # define UP		65362

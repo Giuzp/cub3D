@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/24 14:21:09 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/24 14:25:37 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/24 21:23:21 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/24 21:23:21 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ static void	draw_minimap(t_config *conf)
 		}
 		y++;
 	}
-	draw_square(&conf->mlx.frame, LENGTH / 2, WIDTH / 2, 10, 0x00FF0000);
+	draw_square(&conf->mlx.frame, conf->mlx.width / 2,
+		conf->mlx.height / 2, 10, 0x00FF0000);
 }

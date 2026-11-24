@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/18 21:34:54 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/18 21:34:54 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/24 21:22:33 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/24 21:22:33 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct s_image
 
 typedef struct s_mlx
 {
+	int		height;
+	int		width;
 	void	*mlx;
 	void	*win;
 	t_image	frame;

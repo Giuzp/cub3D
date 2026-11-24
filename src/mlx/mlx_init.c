@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/01 18:08:09 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/01 18:08:09 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/24 21:24:08 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/24 21:24:12 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	init_mlx(t_config *conf)
 	mlx->mlx = mlx_init();
 	if (!mlx->mlx)
 		clean_exit(E_MLX_INIT, MLX_INIT, conf, NULL);
-	mlx->win = mlx_new_window(mlx->mlx, LENGTH, WIDTH, "cub3D");
+	mlx_get_screen_size(mlx->mlx, &mlx->width, &mlx->height);
+	mlx->width = mlx->width;
+	mlx->height = mlx->height;
+	mlx->win = mlx_new_window(mlx->mlx, mlx->width, mlx->height, "cub3D");
 	if (!mlx->win)
 		clean_exit(E_WIN_FAIL, WIN_FAIL, conf, NULL);
 }
@@ -30,7 +33,8 @@ void	init_image(t_config *conf)
 	t_image	*frame;
 
 	frame = &conf->mlx.frame;
-	frame->img = mlx_new_image(conf->mlx.mlx, LENGTH, WIDTH);
+	frame->img = mlx_new_image(conf->mlx.mlx, conf->mlx.width,
+		conf->mlx.height);
 	if (!frame->img)
 		clean_exit(E_IMG_FAIL, IMG_FAIL, conf, NULL);
 	frame->addr = mlx_get_data_addr(frame->img, &frame->bpp,
