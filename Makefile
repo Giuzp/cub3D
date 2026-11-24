@@ -6,7 +6,7 @@
 #    By: dcresce <dcresce@student.42lausanne.ch>   	+#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/05 16:33:55 by dcresce           #+#    #+#              #
-#    Updated: 2026/11/18 21:34:24 by dcresce          ###   ########.fr        #
+#    Updated: 2026/11/24 11:48:29 by dcresce          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ check_map_is_ok \
 config_init
 
 MLX_SRC_DIR = src/mlx/
-MLX = mlx_init mlx_keys mlx_loop
+MLX = mlx_init mlx_keys mlx_loop mlx_draw
 
 MINIMAP_DIR = src/minimap/
 MINIMAP = minimap minimap_helpers

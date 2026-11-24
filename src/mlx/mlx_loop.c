@@ -21,6 +21,8 @@ int	render_frame(t_config *conf)
 		if (!mp_rendered)
 		{
 			render_minimap(conf);
+			mlx_put_image_to_window(conf->mlx.mlx, conf->mlx.win,
+				conf->mlx.frame.img, 0, 0);
 			mp_rendered = true;
 		}
 	}
