@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/01 18:04:43 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/01 18:04:47 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/18 21:34:54 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/18 21:34:54 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,6 @@ typedef struct s_mlx
 
 typedef struct s_minimap
 {
-	int		width;			//map size in pixels
-	int		height;
-	int		tile_size;		//size of a tile in pixels
-	//dir
 	bool	enabled;		//is minimap displayed?
 	char	**minimap;
 	char	**discovered;	//Discovered tiles map

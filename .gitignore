@@ -4,6 +4,6 @@
 *.d
 .vscode
 minilibx/test/mlx-test
-
+agent.md
 
 cub

@@ -6,7 +6,7 @@
 #    By: dcresce <dcresce@student.42lausanne.ch>   	+#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/05 16:33:55 by dcresce           #+#    #+#              #
-#    Updated: 2026/11/01 21:37:49 by dcresce          ###   ########.fr        #
+#    Updated: 2026/11/18 21:34:24 by dcresce          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,9 @@ config_init
 MLX_SRC_DIR = src/mlx/
 MLX = mlx_init mlx_keys mlx_loop
 
+MINIMAP_DIR = src/minimap/
+MINIMAP = minimap minimap_helpers
+
 CLEANING_DIR = src/cleaning/
 CLEANING = clean_exit clean_helpers
 
@@ -60,6 +63,7 @@ SRC_FILES += $(MAIN)
 SRC_FILES += $(addprefix $(PARS_DIR),$(PARS))
 SRC_FILES += $(addprefix $(CLEANING_DIR),$(CLEANING))
 SRC_FILES += $(addprefix $(MLX_SRC_DIR),$(MLX))
+SRC_FILES += $(addprefix $(MINIMAP_DIR),$(MINIMAP))
 
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRC_FILES)))
@@ -93,6 +97,7 @@ $(OBJSF):
 	@mkdir -p $(OBJS_DIR)$(PARS_DIR)
 	@mkdir -p $(OBJS_DIR)$(CLEANING_DIR)
 	@mkdir -p $(OBJS_DIR)$(MLX_SRC_DIR)
+	@mkdir -p $(OBJS_DIR)$(MINIMAP_DIR)
 
 clean:
 	@$(RM) -rf $(OBJS_DIR)

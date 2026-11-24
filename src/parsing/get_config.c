@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/27 21:14:14 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/27 21:14:19 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/19 11:56:46 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/19 11:57:06 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,15 @@ t_config	*get_config(char *map_path)
 	fd = open(map_path, O_RDONLY);
 	if (fd < 0)
 		clean_exit(E_OPEN, OPEN, NULL, NULL);
+	//to remove later
 	conf = conf_init();
 	//conf = read_store_cubfile(fd, map_path);
 	map = store_map(fd);
 	validate_map(map, p_pos, &(conf->p_dir));
+	conf->p_pos[0] = p_pos[0] + 0.5;
+	conf->p_pos[1] = p_pos[1] + 0.5;
 	conf->map = map;
 	close(fd);
-	return (conf);
-}
-
-static t_config	*conf_init(void)
-{
-	t_config	*conf;
-
-	conf = ft_calloc(1, sizeof(*conf));
-	if (!conf)
-		clean_exit(E_MALLOC, MALLOC, NULL, NULL);
 	return (conf);
 }
 
@@ -69,4 +62,14 @@ void	print_map(char **map)
 		printf("%s\n", map[i]);
 		i++;
 	}
+}
+
+static t_config	*conf_init(void)
+{
+	t_config	*conf;
+
+	conf = ft_calloc(1, sizeof(*conf));
+	if (!conf)
+		clean_exit(E_MALLOC, MALLOC, NULL, NULL);
+	return (conf);
 }

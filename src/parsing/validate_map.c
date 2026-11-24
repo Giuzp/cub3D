@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/22 14:20:40 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/22 14:20:40 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/19 11:49:59 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/19 11:50:16 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ static void	check_chars_and_pos(char **map, int p_pos[2], char *p_dir)
 	int	i;
 	int	j;
 
-	i = 0;
-	while (map[i])
+	i = -1;
+	while (map[++i])
 	{
 		j = 0;
 		while (map[i][j])
@@ -67,10 +67,10 @@ static void	check_chars_and_pos(char **map, int p_pos[2], char *p_dir)
 				p_pos[0] = j;
 				p_pos[1] = i;
 				*p_dir = map[i][j];
+				map[i][j] = '0';
 			}
 			j++;
 		}
-		i++;
 	}
 	if (!*p_dir)
 		clean_exit(E_NO_P, NO_P, NULL, NULL);

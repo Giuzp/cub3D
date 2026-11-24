@@ -3,14 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_loop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/01 18:07:01 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/01 18:07:01 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/18 22:32:10 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/24 11:29:51 by jturrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
+
+int	render_frame(t_config *conf)
+{
+	static bool	mp_rendered = false;
+
+	if (conf->mp.enabled)
+	{
+		if (!mp_rendered)
+		{
+			render_minimap(conf);
+			mp_rendered = true;
+		}
+	}
+	else
+	{
+		mp_rendered = false;
+		//display game
+	}
+	return (0);
+}
 
 void put_pixel(t_image *frame, int x, int y, int color)
 {
@@ -66,18 +86,4 @@ void draw_minimap(t_config *conf)
     conf->p_pos[0] * size,
     conf->p_pos[1] * size,
     4, 0x00FF0000);*/
-}
-
-int render_frame(t_config *conf)
-{
-
-//    if (conf->mp.enabled)
-     draw_minimap(conf);
-  /*  else
-    {
-        put_pixel(&conf->mlx.frame, 100, 100, 0x0000FF00);
-    */
-    mlx_put_image_to_window(conf->mlx.mlx,
-        conf->mlx.win, conf->mlx.frame.img, 0, 0);
-    return (0);
 }
