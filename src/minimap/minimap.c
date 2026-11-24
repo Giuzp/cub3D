@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/24 11:34:58 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/24 11:35:51 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/24 14:21:09 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/24 14:25:37 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-static void	GenerateMinimapBuffer(t_config *conf);
-static void draw_minimap(t_config *conf);
+static void	generate_minimap_buffer(t_config *conf);
+static void	draw_minimap(t_config *conf);
 
 /**
  * @brief	Renders the minimap in the window
@@ -22,37 +22,26 @@ static void draw_minimap(t_config *conf);
  */
 void	render_minimap(t_config *conf)
 {
-	//======================================
-	//INIT AND FILL THE MINIMAP
 	conf->mp.minimap = init_minimap();
 	if (!conf->mp.minimap)
 		clean_exit(E_MALLOC, MALLOC, conf, NULL);
-	GenerateMinimapBuffer(conf);
-	//END OF INIT AND FILL THE MINIMAP
-	//======================================
-	
-	//======================================
-	//RENDER THE MINIMAP
+	generate_minimap_buffer(conf);
 	draw_minimap(conf);
-	//END OF RENDER THE MINIMAP
-	//======================================
-
-	//======================================
-	//FREE THE MINIMAP
+	mlx_put_image_to_window(conf->mlx.mlx, conf->mlx.win,
+		conf->mlx.frame.img, 0, 0);
 	free_split(conf->mp.minimap);
 	conf->mp.minimap = NULL;
-	//END OF FREE THE MINIMAP
-	//======================================
 }
 
-static void	GenerateMinimapBuffer(t_config *conf)
+static void	generate_minimap_buffer(t_config *conf)
 {
 	int		x;
 	int		y;
 	int		map_x;
 	int		map_y;
-	double	*pos = conf->p_pos;
+	double	*pos;
 
+	pos = conf->p_pos;
 	y = 0;
 	while (y < MP_HEIGHT)
 	{
@@ -72,32 +61,24 @@ static void	GenerateMinimapBuffer(t_config *conf)
 	}
 }
 
-static void draw_minimap(t_config *conf)
+static void	draw_minimap(t_config *conf)
 {
-    int x;
-    int y;
-    int size;
+	int	x;
+	int	y;
 
-    size = 35; //conf->mp.tile_size;
-    y = 0;
-    while (conf->map[y])
-    {
-        x = 0;
-        while (conf->map[y][x])
-        {
-            if (conf->map[y][x] == '1')
-                draw_square(&conf->mlx.frame,
-                    x * size, y * size, size, 0x00808080);
-            else if (conf->map[y][x] == '0')
-                draw_square(&conf->mlx.frame,
-                    x * size, y * size, size, 0x00FFFFFF);
-            x++;
-        }
-        y++;
-    }
-    draw_square(&conf->mlx.frame, 365, 55, 10, 0x00FF0000);
-    /*draw_square(&conf->mlx.frame,
-    conf->p_pos[0] * size,
-    conf->p_pos[1] * size,
-    4, 0x00FF0000);*/
+	y = 0;
+	while (conf->mp.minimap[y])
+	{
+		x = 0;
+		while (conf->mp.minimap[y][x])
+		{
+			if (conf->mp.minimap[y][x] == '1')
+				put_pixel(&conf->mlx.frame, x, y, 0x00808080);
+			else if (conf->mp.minimap[y][x] == '0')
+				put_pixel(&conf->mlx.frame, x, y, 0x00FFFFFF);
+			x++;
+		}
+		y++;
+	}
+	draw_square(&conf->mlx.frame, LENGTH / 2, WIDTH / 2, 10, 0x00FF0000);
 }

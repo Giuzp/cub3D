@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/24 11:34:53 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/24 11:34:53 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/24 14:18:18 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/24 14:18:18 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int	render_frame(t_config *conf)
 		if (!mp_rendered)
 		{
 			render_minimap(conf);
-			mlx_put_image_to_window(conf->mlx.mlx, conf->mlx.win,
-				conf->mlx.frame.img, 0, 0);
 			mp_rendered = true;
 		}
 	}
