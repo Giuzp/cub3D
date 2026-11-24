@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/24 21:23:21 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/24 21:23:21 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/24 21:43:32 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/24 21:51:24 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ static void	draw_minimap(t_config *conf);
  */
 void	render_minimap(t_config *conf)
 {
-	conf->mp.minimap = init_minimap();
+	conf->mp.width = conf->mlx.width * MP_PERCENT / 100;
+	conf->mp.height = conf->mlx.height * MP_PERCENT / 100;
+	conf->mp.offset_x = (conf->mlx.width - conf->mp.width) / 2;
+	conf->mp.offset_y = (conf->mlx.height - conf->mp.height) / 2;
+	conf->mp.minimap = init_minimap(conf->mp.width, conf->mp.height);
 	if (!conf->mp.minimap)
 		clean_exit(E_MALLOC, MALLOC, conf, NULL);
 	generate_minimap_buffer(conf);
@@ -43,13 +47,13 @@ static void	generate_minimap_buffer(t_config *conf)
 
 	pos = conf->p_pos;
 	y = 0;
-	while (y < MP_HEIGHT)
+	while (y < conf->mp.height)
 	{
-		map_y = (int)floor(pos[1] + (double)(y - MP_HEIGHT / 2) / TILE_SIZE);
+		map_y = (int)floor(pos[1] + (double)(y - conf->mp.height / 2) / TS);
 		x = 0;
-		while (x < MP_WIDTH)
+		while (x < conf->mp.width)
 		{
-			map_x = (int)floor(pos[0] + (double)(x - MP_WIDTH / 2) / TILE_SIZE);
+			map_x = (int)floor(pos[0] + (double)(x - conf->mp.width / 2) / TS);
 			if (map_x < 0 || map_y < 0 || map_y >= count_lines(conf->map)
 				|| map_x >= (int)ft_strlen(conf->map[map_y]))
 				conf->mp.minimap[y][x] = ' ';
@@ -73,13 +77,18 @@ static void	draw_minimap(t_config *conf)
 		while (conf->mp.minimap[y][x])
 		{
 			if (conf->mp.minimap[y][x] == '1')
-				put_pixel(&conf->mlx.frame, x, y, 0x00808080);
+				put_pixel(&conf->mlx.frame, x + conf->mp.offset_x,
+					y + conf->mp.offset_y, 0x00808080);
 			else if (conf->mp.minimap[y][x] == '0')
-				put_pixel(&conf->mlx.frame, x, y, 0x00FFFFFF);
+				put_pixel(&conf->mlx.frame, x + conf->mp.offset_x,
+					y + conf->mp.offset_y, 0x00FFFFFF);
+			else
+				put_pixel(&conf->mlx.frame, x + conf->mp.offset_x,
+					y + conf->mp.offset_y, 0x0087CEEB);
 			x++;
 		}
 		y++;
 	}
-	draw_square(&conf->mlx.frame, conf->mlx.width / 2,
-		conf->mlx.height / 2, 10, 0x00FF0000);
+	draw_square(&conf->mlx.frame, conf->mlx.width / 2 - 5,
+		conf->mlx.height / 2 - 5, 10, 0x00FF0000);
 }
