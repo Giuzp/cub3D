@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/18 22:26:57 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/18 22:27:05 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/24 11:34:09 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/24 11:34:31 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,8 @@ void	init_image(t_config *conf);
 int		render_frame(t_config *conf);
 int		key_hook(int k, t_config *conf);
 int		close_window(t_config *conf);
+// drawing
+void	 put_pixel(t_image *frame, int x, int y, int color);
+void	 draw_square(t_image *img, int x, int y, int size, int color);
 
 #endif
