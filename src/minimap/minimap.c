@@ -6,7 +6,7 @@
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 21:43:32 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/24 21:51:24 by dcresce          ###   ########.ch       */
+/*   Updated: 2026/11/24 22:34:51 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,6 @@ static void	draw_minimap(t_config *conf)
 		}
 		y++;
 	}
-	draw_square(&conf->mlx.frame, conf->mlx.width / 2 - 5,
-		conf->mlx.height / 2 - 5, 10, 0x00FF0000);
+	draw_square(&conf->mlx.frame, conf->mlx.width / 2 - 20,
+		conf->mlx.height / 2 - 20, 40, 0x00FF0000);
 }

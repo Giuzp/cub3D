@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub.h                                              :+:      :+:    :+:   */
+/*   settings.json                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/18 21:56:17 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/18 21:56:24 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/24 22:41:53 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/24 22:41:53 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 # include <unistd.h>
 # include <string.h>
 # include <math.h>
-
+# include "mlx_int.h"
+# include <X11/extensions/Xrandr.h>
 //file headers
 # include "libft.h"
 # include "mlx.h"

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/24 20:54:39 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/24 20:54:39 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/24 22:43:46 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/24 22:43:52 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 // init mlx
 void	init_mlx(t_config *conf);
 void	init_image(t_config *conf);
+int		get_monitor_size(t_mlx *mlx);
 // loops
 int		render_frame(t_config *conf);
 int		key_hook(int k, t_config *conf);

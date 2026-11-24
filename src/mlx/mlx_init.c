@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/24 21:24:08 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/24 21:24:12 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/24 22:44:06 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/24 22:44:16 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ void	init_mlx(t_config *conf)
 	mlx->mlx = mlx_init();
 	if (!mlx->mlx)
 		clean_exit(E_MLX_INIT, MLX_INIT, conf, NULL);
-	mlx_get_screen_size(mlx->mlx, &mlx->width, &mlx->height);
-	mlx->width = mlx->width;
-	mlx->height = mlx->height;
+	get_monitor_size(mlx);
 	mlx->win = mlx_new_window(mlx->mlx, mlx->width, mlx->height, "cub3D");
 	if (!mlx->win)
 		clean_exit(E_WIN_FAIL, WIN_FAIL, conf, NULL);
