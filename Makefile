@@ -26,7 +26,7 @@ SRCS_DIR 	= ./
 OBJS_DIR 	= obj/
 CC 			= gcc
 RM 			= rm -f
-CFLAGS 		= -Wall -Wextra -Werror -std=c99 -g #-fsanitize=address
+CFLAGS 		= -Wall -Wextra -Werror -std=c99 -D_POSIX_C_SOURCE=200809L -g #-fsanitize=address
 
 #mlx
 MLX_DIR = minilibx
