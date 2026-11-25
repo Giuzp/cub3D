@@ -48,31 +48,55 @@ void	init_id(t_check_id *id)
 	id->c_id = false;
 }
 
+int	check_extention(char *str)
+{
+	char	*ext;
+
+	ext = ft_strrchr(str, '.');
+	if (!ext)
+		return (1);
+	printf("%s\n", ext);
+	if (ft_strncmp(ext, ".xpm", 4))
+		return (1);
+	printf("oui");
+	return (0);
+}
+
+int	parse_line_texture(char *str, t_check_id *id)
+{
+	check_letter(str[0], id);
+	if (str[0] == 'N' || str[0] == 'S'|| str[0] == 'W' || str[0] == 'E')
+	{
+		if (check_extention(str))
+			return (1);
+	}
+	return (0);
+}
+
 /*
  * everytime an identifier is find a flag up and if not
  * correct identifier we exit.
  */
 int	check_id(char **line, t_check_id *id, int fd)
 {
+	int	i;
+
+	i = 0;
 	while (*line[0] != '1')
 	{
+		if (i > 6)
+			return (1);
 		if (*line[0] == ' ')
 		{
 			*line = trim_line(*line); // leak ? check 
 			continue ;
 		}
-		if (*line[0] == 'N')
-			id->no_id = true;
-		else if (*line[0] == 'S')
-			id->so_id = true;
-		else if (*line[0] == 'W')
-			id->we_id = true;
-		else if (*line[0] == 'E')
-			id->ea_id = true;
-		else if (*line[0] == 'F')
-			id->f_id = true;
-		else if (*line[0] == 'C')
-			id->c_id = true;
+		if (*line[0] == 'N' || *line[0] == 'C' || *line[0] == 'F' || *line[0] == 'E' || *line[0] == 'W' || *line[0] == 'S')
+		{
+			if (parse_line_texture(*line, id))
+				return (1);
+			i++;
+		}
 		else if (*line[0] != '\n')
 			return (1);
 		free_and_null(line);

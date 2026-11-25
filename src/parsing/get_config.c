@@ -6,7 +6,7 @@
 /*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 11:56:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/24 17:49:39 by jturrel          ###   ########.fr       */
+/*   Updated: 2026/11/25 20:23:42 by jturrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,22 @@ t_config	*get_config(char *map_path)
 	conf->map = map;
 	close(fd);
 	return (conf);
+}
+
+void	check_letter(char letter, t_check_id *id)
+{
+	if (letter == 'N')
+		id->no_id = true;
+	else if (letter == 'S')
+		id->so_id = true;
+	else if (letter == 'W')
+		id->we_id = true;
+	else if (letter == 'E')
+		id->ea_id = true;
+	else if (letter == 'F')
+		id->f_id = true;
+	else if (letter == 'C')
+		id->c_id = true;
 }
 
 //HELPER FUNCTIONS TO DESTROY LATER
