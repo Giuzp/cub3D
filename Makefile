@@ -6,7 +6,7 @@
 #    By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/05 16:33:55 by dcresce           #+#    #+#              #
-#    Updated: 2026/11/24 17:45:13 by jturrel          ###   ########.fr        #
+#    Updated: 2026/11/25 14:59:57 by jturrel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RESET	= \033[0m
 
 .DEFAULT_GOAL := all
 
-NAME		= cub
+NAME		= cub3D
 INC_DIR		= inc
 SRCS_DIR 	= ./
 OBJS_DIR 	= obj/
