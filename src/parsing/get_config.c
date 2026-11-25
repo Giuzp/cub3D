@@ -5,12 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/19 11:56:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/19 11:57:06 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/25 21:43:50 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/25 21:46:27 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
+
+static int	check_path(char *path);
 
 static t_config	*conf_init(void);
 
@@ -25,17 +27,11 @@ static t_config	*conf_init(void);
 t_config	*get_config(char *map_path)
 {
 	t_config	*conf;
-	char		*ext;
 	int			fd;
 	char		**map;
 	int			p_pos[2];
 
-	ext = ft_strrchr(map_path, '.');
-	if (!ext)
-		clean_exit(E_EXT, EXT, NULL, NULL);
-	if (ft_strncmp(ext, ".cub", 5))
-		clean_exit(E_EXT, EXT, NULL, NULL);
-	fd = open(map_path, O_RDONLY);
+	fd = check_path(map_path);
 	if (fd < 0)
 		clean_exit(E_OPEN, OPEN, NULL, NULL);
 	//to remove later
@@ -48,6 +44,26 @@ t_config	*get_config(char *map_path)
 	conf->map = map;
 	close(fd);
 	return (conf);
+}
+
+static int	check_path(char *path)
+{
+	char	*ext;
+	int		fd;
+
+	ext = ft_strrchr(path, '.');
+	if (!ext)
+		clean_exit(E_EXT, EXT, NULL, NULL);
+	if (ft_strncmp(ext, ".cub", 5))
+		clean_exit(E_EXT, EXT, NULL, NULL);
+	fd = open(path, O_RDONLY | O_DIRECTORY);
+	if (fd >= 0)
+	{
+		close(fd);
+		return (-1);
+	}
+	fd = open(path, O_RDONLY);
+	return (fd);
 }
 
 //HELPER FUNCTIONS TO DESTROY LATER

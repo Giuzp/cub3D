@@ -6,7 +6,7 @@
 #    By: dcresce <dcresce@student.42lausanne.ch>   	+#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/05 16:33:55 by dcresce           #+#    #+#              #
-#    Updated: 2026/11/24 22:44:59 by dcresce          ###   ########.fr        #
+#    Updated: 2026/11/25 21:43:26 by dcresce          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS_DIR 	= ./
 OBJS_DIR 	= obj/
 CC 			= gcc
 RM 			= rm -f
-CFLAGS 		= -Wall -Wextra -Werror -std=c99 -g #-fsanitize=address
+CFLAGS 		= -Wall -Wextra -Werror -std=c99 -D_POSIX_C_SOURCE=200809L -g #-fsanitize=address
 
 #mlx
 MLX_DIR = minilibx
