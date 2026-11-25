@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/24 14:19:08 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/24 14:20:57 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/25 20:17:28 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/25 20:17:41 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	put_pixel(t_image *frame, int x, int y, int color)
 	*(unsigned int *)pixel = color;
 }
 
-void	draw_square(t_image *img, int x, int y, int size, int color)
+void	draw_square(t_image *img, int *pos, int size, int color)
 {
 	int	i;
 	int	j;
@@ -31,7 +31,7 @@ void	draw_square(t_image *img, int x, int y, int size, int color)
 		j = 0;
 		while (j < size)
 		{
-			put_pixel(img, x + j, y + i, color);
+			put_pixel(img, pos[0] + j, pos[1] + i, color);
 			j++;
 		}
 		i++;

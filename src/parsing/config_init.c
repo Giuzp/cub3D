@@ -2,9 +2,9 @@
 
 int	put_data_on_config(char *line, t_config *config, t_exit_code *exit_code);
 int	atoi_color_data(char **buffer, char *line, t_config *config,
-	t_exit_code *exit_code);
+		t_exit_code *exit_code);
 int	essential_data(char *line);
-int	put_color_data(char *line, t_config *config, int i,t_exit_code *exit_code);
+int	put_color_data(char *line, t_config *config, int i, t_exit_code *exit_code);
 
 /*
 

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/25 18:46:16 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/25 18:54:40 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/25 20:18:35 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/25 20:20:14 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,13 @@ static void	draw_minimap(t_config *conf)
 {
 	int	x;
 	int	y;
+	int	pos[2];
 
-	y = 0;
-	while (conf->mp.minimap[y])
+	y = -1;
+	while (conf->mp.minimap[++y])
 	{
-		x = 0;
-		while (conf->mp.minimap[y][x])
+		x = -1;
+		while (conf->mp.minimap[y][++x])
 		{
 			if (conf->mp.minimap[y][x] == '1')
 				put_pixel(&conf->mlx.frame, x + conf->mp.offset_x,
@@ -86,10 +87,9 @@ static void	draw_minimap(t_config *conf)
 			else
 				put_pixel(&conf->mlx.frame, x + conf->mp.offset_x,
 					y + conf->mp.offset_y, 0x0087CEEB);
-			x++;
 		}
-		y++;
 	}
-	draw_square(&conf->mlx.frame, conf->mlx.width / 2 - 20,
-		conf->mlx.height / 2 - 20, 40, 0x00FF0000);
+	pos[0] = conf->mlx.width / 2 - 20;
+	pos[1] = conf->mlx.height / 2 - 20;
+	draw_square(&conf->mlx.frame, pos, 40, 0x00FF0000);
 }
