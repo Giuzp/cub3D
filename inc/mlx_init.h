@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/24 22:43:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/24 22:43:52 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/25 18:36:53 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/25 18:37:28 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@
 // other button
 # define ESC	65307
 # define KEY_M	109
+// dimensions
+# define DEFAULT_W 1920
+# define DEFAULT_H 1080
+
 
 // init mlx
 void	init_mlx(t_config *conf);

@@ -15,7 +15,7 @@
 static int	has_monitor_support(t_xvar *xvar);
 static int	select_primary_monitor(XRRMonitorInfo *monitors, int count);
 
-/* Returns 1 on success; on failure, leaves the dimensions unchanged. */
+/* Returns 1 on success; on failure, leaves the monitor geometry unchanged. */
 int	get_monitor_size(t_mlx *mlx)
 {
 	t_xvar			*xvar;
@@ -36,6 +36,8 @@ int	get_monitor_size(t_mlx *mlx)
 		XRRFreeMonitors(monitors);
 		return (0);
 	}
+	mlx->screen_x = monitors[selected].x;
+	mlx->screen_y = monitors[selected].y;
 	mlx->width = monitors[selected].width;
 	mlx->height = monitors[selected].height;
 	XRRFreeMonitors(monitors);
