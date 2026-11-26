@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "cub.h"
-#include <fcntl.h>
 
 int	check_color(char *line, int i, t_exit_code *exit_code);
 int	check_other_identifier(char *line);
@@ -140,4 +139,3 @@ int	check_if_path_exist(char *line, int i, t_exit_code *exit_code)
 	close(fd);
 	return (0);
 }
-

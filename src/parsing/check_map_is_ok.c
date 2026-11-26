@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 22:07:55 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 22:12:12 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 22:17:13 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 22:17:13 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,40 +65,6 @@ void	init_id(t_check_id *id)
 	id->c_id = false;
 }
 
-int	parse_line_texture(char *str, t_check_id *id)
-{
-	check_letter(str[0], id);
-	if (str[0] == 'N' || str[0] == 'S'|| str[0] == 'W' || str[0] == 'E')
-	{
-		if (check_extention(str))
-			return (1);
-	}
-	return (0);
-}
-
-int	check_extention(char *str)
-{
-	char	*ext;
-
-	ext = ft_strrchr(str, '.');
-	if (!ext)
-		return (1);
-	if (ft_strncmp(ext, ".xpm", 4))
-		return (1);
-	return (0);
-}
-
-int	parse_line_texture(char *str, t_check_id *id)
-{
-	check_letter(str[0], id);
-	if (str[0] == 'N' || str[0] == 'S'|| str[0] == 'W' || str[0] == 'E')
-	{
-		if (check_extention(str))
-			return (1);
-	}
-	return (0);
-}
-
 /**
  * @brief	Reads configuration lines and marks the identifiers found
  *
@@ -109,31 +75,27 @@ int	parse_line_texture(char *str, t_check_id *id)
  */
 int	check_id(char **line, t_check_id *id, int fd)
 {
-	while (*line && (*line)[0] != '1' && !check_all_id(id))
+	int	i;
+
+	i = 0;
+	while (*line && i < 6)
 	{
-		if (*line[0] == ' ')
+		if ((*line)[0] == ' ')
 		{
 			*line = trim_line(*line);
-			continue ;
+			if (!*line)
+				return (1);
 		}
-		if (*line[0] == 'N')
-			id->no_id = true;
-		else if (*line[0] == 'S')
-			id->so_id = true;
-		else if (*line[0] == 'W')
-			id->we_id = true;
-		else if (*line[0] == 'E')
-			id->ea_id = true;
-		else if (*line[0] == 'F')
-			id->f_id = true;
-		else if (*line[0] == 'C')
-			id->c_id = true;
-		else if (*line[0] != '\n')
+		if ((*line)[0] != '\n' && parse_line_texture(*line, id))
 			return (1);
+		if ((*line)[0] != '\n')
+			i++;
+		if (i == 6)
+			return (0);
 		free_and_null(line);
 		*line = gnl(fd);
 	}
-	return (*line == NULL);
+	return (1);
 }
 
 /**

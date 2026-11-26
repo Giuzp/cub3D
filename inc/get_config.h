@@ -31,6 +31,8 @@ int			check_map_is_ok(int fd, t_exit_code *exit_code);
 char		*trim_line(char *line);
 t_config	*config_init(char **buffer, t_exit_code *exit_code);
 void		check_letter(char letter, t_check_id *id);
+int			check_extention(char *str);
+int			parse_line_texture(char *str, t_check_id *id);
 char		*ft_strndup(char *str, int n);
 int			check_all_id(t_check_id *id);
 bool		check_color_commas(char *str);

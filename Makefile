@@ -21,7 +21,6 @@ RESET	= \033[0m
 .DEFAULT_GOAL := all
 
 NAME		= cub3D
-NAME		= cub3D
 INC_DIR		= inc
 SRCS_DIR 	= ./
 OBJS_DIR 	= obj/
@@ -48,7 +47,7 @@ PARS = get_config store_map validate_map validate_map_helpers \
 read_store_cubfile \
 utils_parsing \
 checking_parsing \
-check_map_is_ok \
+check_map_is_ok texture_identifiers \
 config_init
 
 MLX_SRC_DIR = src/mlx/
