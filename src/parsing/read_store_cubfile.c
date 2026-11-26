@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_store_cubfile.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/26 14:45:10 by jturrel           #+#    #+#             */
+/*   Updated: 2026/11/26 14:45:19 by jturrel          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub.h"
-#include <string.h>
 
 int			parse_line(char **line, t_exit_code *exit_code);
 char		**read_fd(int fd, char *map_path, t_exit_code *exit_code);
