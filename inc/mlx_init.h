@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/25 20:18:13 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/25 20:18:22 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 11:58:06 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 11:58:06 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@
 // dimensions
 # define DEFAULT_W 1920
 # define DEFAULT_H 1080
-
 
 // init mlx
 void	init_mlx(t_config *conf);
