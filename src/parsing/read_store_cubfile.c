@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_store_cubfile.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/26 14:56:13 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 14:56:31 by dcresce          ###   ########.ch       */
+/*   Updated: 2026/11/26 18:55:01 by jturrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ int	parse_colour_and_texture(int fd, char **buffer, t_exit_code *exit_code)
 		if (line[0] != '\n')
 		{
 			buffer[i] = ft_strndup(line, ft_strlen(line) - 1);
-				// TODO creer la fonction
 			if (!buffer[i])
 				clean_while_read(fd, line, buffer, exit_code);
 			i++;

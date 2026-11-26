@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_config.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/26 14:55:36 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 14:55:54 by dcresce          ###   ########.ch       */
+/*   Updated: 2026/11/26 18:54:10 by jturrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
+
+static int	check_path(char *path);
 
 /**
  * @brief	Loads the map configuration from a .cub file

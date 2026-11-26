@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checking_parsing.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/26 14:53:12 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 14:55:09 by dcresce          ###   ########.ch       */
+/*   Updated: 2026/11/26 18:55:34 by jturrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	check_identifier(char *line, int *i, t_exit_code *exit_code)
 	if (line[*i] == 'C' || line[*i] == 'F')
 		return (check_color(line, *i, exit_code));
 	else if (check_other_identifier(line))
-		return (/*check_if_path_exist(line, *i, exit_code*/ 0);
+		return (check_if_path_exist(line, *i, exit_code));
 	exit_code_init(exit_code, E_SCENE_W, SCENE_W);
 	return (1);
 }
@@ -110,7 +110,8 @@ int	check_other_identifier(char *line)
  */
 int	check_if_path_exist(char *line, int i, t_exit_code *exit_code)
 {
-	int	fd;
+	int		fd;
+	char	*buffer;
 
 	i = crop_isspace(line, i);
 	fd = open(&line[i], O_DIRECTORY);
@@ -121,11 +122,14 @@ int	check_if_path_exist(char *line, int i, t_exit_code *exit_code)
 		return (1);
 	}
 	fd = open(&line[i], O_RDONLY);
+	buffer = ft_strndup(line + 3, ft_strlen(line + 3) - 1);
+	fd = open(buffer, O_RDONLY);
 	if (fd < 0)
 	{
 		exit_code_init(exit_code, E_OPEN, OPEN);
 		return (1);
 	}
 	close(fd);
+	free(buffer);
 	return (0);
 }
