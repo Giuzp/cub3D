@@ -19,13 +19,13 @@ int	check_map_is_ok(int fd, t_exit_code *exit_code)
 
 	init_id(id);
 	line = gnl(fd);
-	if (!line || line[0] == 1)
+	if (!line  || line[0] == 1)
 	{
 		close(fd);
-		if (line[0] == 1)
-			exit_code_init(exit_code, E_WRO_O, WRO_O);
-		else
+		if (!line)
 			exit_code_init(exit_code, E_EMPTY, EMPTY);
+		else
+			exit_code_init(exit_code, E_WRO_O, WRO_O);
 		return (1);
 	}
 	if (check_id(&line, id, fd))
