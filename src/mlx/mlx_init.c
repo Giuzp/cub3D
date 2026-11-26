@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 11:47:20 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 11:49:43 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 20:48:58 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 20:48:58 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,6 @@ void	init_image(t_config *conf)
 		frame->img = NULL;
 		clean_exit(E_ADDR_FAIL, ADDR_FAIL, conf, NULL);
 	}
+	frame->width = conf->mlx.width;
+	frame->height = conf->mlx.height;
 }

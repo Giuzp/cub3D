@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checking_parsing.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 14:53:12 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 18:55:34 by jturrel          ###   ########.fr       */
+/*   Created: 2026/11/26 20:43:14 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 20:43:19 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	check_color(char *line, int i, t_exit_code *exit_code)
 			return (free_array_code_init(number_array, exit_code));
 		array_index++;
 	}
-	if (array_index != 3)
+	if (array_index != 3 || number_array[array_index])
 		return (free_array_code_init(number_array, exit_code));
 	free_split(number_array);
 	number_array = NULL;

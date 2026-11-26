@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_config.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/01 18:06:00 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 13:43:56 by jturrel          ###   ########.fr       */
+/*   Created: 2026/11/26 20:53:59 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 20:53:59 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,5 @@ void		validate_map(char **map, int p_pos[2], char *p_dir);	//check map
 int			count_lines(char **map);		//count lines in map
 char		**dup_array(char **array);		//duplicates the map for flood fill
 bool		check_for_missing_spots(char **map, int *x, int *y);
-
-//HELPER FUNCTIONS TO DESTROY LATER
-void		print_map(char **map);
 
 #endif

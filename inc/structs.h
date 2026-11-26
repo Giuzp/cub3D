@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/24 21:37:38 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/24 21:38:29 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 20:48:30 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 20:48:42 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_check_id
 
 typedef struct s_image
 {
+	int		height;
+	int		width;
 	void	*img;
 	char	*addr;
 	int		bpp;

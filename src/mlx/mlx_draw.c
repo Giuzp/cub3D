@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 11:25:15 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 11:30:12 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 20:49:07 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 20:49:07 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	put_pixel(t_image *frame, int x, int y, int color)
 {
 	char	*pixel;
 
+	if (x < 0 || y < 0 || x >= frame->width || y >= frame->height)
+		return ;
 	pixel = frame->addr + (y * frame->line_len) + (x * (frame->bpp / 8));
 	*(unsigned int *)pixel = color;
 }

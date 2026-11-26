@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_store_cubfile.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 14:56:13 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 18:55:01 by jturrel          ###   ########.fr       */
+/*   Created: 2026/11/26 20:51:01 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 20:52:19 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,8 +126,12 @@ int	parse_line(char **line, t_exit_code *exit_code)
 		return (0);
 	buffer = NULL;
 	buffer = ft_strtrim(*line, " ");
+	if (!buffer)
+		clean_exit(E_MALLOC, MALLOC, NULL, exit_code);
 	free_and_null(line);
 	*line = ft_strdup(buffer);
+	if (!*line)
+		clean_exit(E_MALLOC, MALLOC, NULL, exit_code);
 	if (!buffer)
 	{
 		exit_code_init(exit_code, E_MALLOC, MALLOC);

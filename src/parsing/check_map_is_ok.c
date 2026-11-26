@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 14:52:02 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 14:52:41 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 20:40:24 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 20:44:39 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	init_id(t_check_id *id);
 int		check_id(char **line, t_check_id *id, int fd);
 int		check_flag_id(t_check_id *id, t_exit_code *exit_code);
-void	close_and_free(int fd, char *line);
+void	free_line(char *line);
 
 /**
  * @brief	Checks that all required identifiers appear before the map
@@ -42,11 +42,11 @@ int	check_map_is_ok(int fd, t_exit_code *exit_code)
 	}
 	if (check_id(&line, id, fd))
 	{
-		close_and_free(fd, line);
+		free_line(line);
 		exit_code_init(exit_code, E_SCENE_W, SCENE_W);
 		return (1);
 	}
-	close_and_free(fd, line);
+	free_line(line);
 	return (check_flag_id(id, exit_code));
 }
 
@@ -75,7 +75,7 @@ void	init_id(t_check_id *id)
  */
 int	check_id(char **line, t_check_id *id, int fd)
 {
-	while (*line[0] != '1' && !check_all_id(id))
+	while (*line && (*line)[0] != '1' && !check_all_id(id))
 	{
 		if (*line[0] == ' ')
 		{
@@ -99,18 +99,16 @@ int	check_id(char **line, t_check_id *id, int fd)
 		free_and_null(line);
 		*line = gnl(fd);
 	}
-	return (0);
+	return (*line == NULL);
 }
 
 /**
  * @brief	Closes the file descriptor and frees the current line
  *
- * @param[in]	fd		File descriptor to close
  * @param[in]	line	Allocated line to free
  */
-void	close_and_free(int fd, char *line)
+void	free_line(char *line)
 {
-	(void)fd;
 	if (line)
 		free(line);
 }
