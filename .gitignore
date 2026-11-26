@@ -6,5 +6,6 @@
 minilibx/test/mlx-test
 agent.md
 CMakeLists.txt
+.idea/
 
 cub3D
