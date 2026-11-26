@@ -70,3 +70,20 @@ int	only_numbers(char *str, t_exit_code *exit_code)
 	}
 	return (0);
 }
+char	*ft_strndup(char *str, int n)
+{
+	char	*dup;
+	int		i;
+
+	i = 0;
+	dup = malloc(sizeof(char) * n + 1);
+	if (!dup)
+		return (NULL);
+	while(i < n)
+	{
+		dup[i] = str[i];
+		i++; 
+	}
+	dup[i] = '\0';
+	return (dup);
+}
