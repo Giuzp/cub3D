@@ -120,7 +120,7 @@ int	check_other_identifier(char *line)
  */
 int	check_if_path_exist(char *line, int i, t_exit_code *exit_code)
 {
-	int	fd;
+	int		fd;
 	char	*buffer;
 
 	i = crop_isspace(line, i);
@@ -131,7 +131,7 @@ int	check_if_path_exist(char *line, int i, t_exit_code *exit_code)
 		exit_code_init(exit_code, E_OPEN, OPEN);
 		return (1);
 	}
-	fd = open(&line[i], O_RDONLY);	
+	fd = open(&line[i], O_RDONLY);
 	buffer = ft_strndup(line + 3, ft_strlen(line + 3));
 	printf("%s\n", buffer);
 	fd = open(buffer, O_RDONLY);
