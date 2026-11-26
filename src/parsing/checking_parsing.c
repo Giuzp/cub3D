@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 21:21:10 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 21:21:14 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 21:32:11 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 21:32:11 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ int	check_if_path_exist(char *line, int i, t_exit_code *exit_code)
 		return (1);
 	}
 	fd = open(&line[i], O_RDONLY);
-	buffer = ft_strndup(line + 3, ft_strlen(line + 3) - 1);
+	buffer = ft_strndup(line + 3, ft_strlen(line + 3));
 	fd = open(buffer, O_RDONLY);
 	if (fd < 0)
 	{

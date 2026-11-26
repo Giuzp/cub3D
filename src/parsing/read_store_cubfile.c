@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 20:51:01 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 20:52:19 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 21:30:48 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 21:31:49 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	parse_colour_and_texture(int fd, char **buffer, t_exit_code *exit_code)
 			clean_while_read(fd, line, buffer, exit_code);
 		if (line[0] != '\n')
 		{
-			buffer[i] = ft_strndup(line, ft_strlen(line) - 1);
+			buffer[i] = ft_strndup(line, ft_strlen(line));
 			if (!buffer[i])
 				clean_while_read(fd, line, buffer, exit_code);
 			i++;
@@ -125,7 +125,7 @@ int	parse_line(char **line, t_exit_code *exit_code)
 	if (*line[0] == '\n')
 		return (0);
 	buffer = NULL;
-	buffer = ft_strtrim(*line, " ");
+	buffer = ft_strtrim(*line, " \n");
 	if (!buffer)
 		clean_exit(E_MALLOC, MALLOC, NULL, exit_code);
 	free_and_null(line);
