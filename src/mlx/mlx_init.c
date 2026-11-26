@@ -25,8 +25,6 @@ void	init_mlx(t_config *conf)
 	mlx->mlx = mlx_init();
 	if (!mlx->mlx)
 		clean_exit(E_MLX_INIT, MLX_INIT, conf, NULL);
-	mlx->screen_x = 0;
-	mlx->screen_y = 0;
 	mlx->width = DEFAULT_W;
 	mlx->height = DEFAULT_H;
 	get_monitor_size(mlx);

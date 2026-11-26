@@ -19,7 +19,7 @@ static int	select_pointer_monitor(t_xvar *xvar,
 				XRRMonitorInfo *monitors, int count);
 
 /**
- * @brief	Stores the pointer monitor position and dimensions
+ * @brief	Stores the pointer monitor dimensions
  *
  * @param[in,out]	mlx	Mlx struct with the connection and window geometry
  * @return		1 on success, 0 if monitor geometry could not be retrieved
@@ -47,8 +47,6 @@ int	get_monitor_size(t_mlx *mlx)
 		XRRFreeMonitors(monitors);
 		return (0);
 	}
-	mlx->screen_x = monitors[selected].x;
-	mlx->screen_y = monitors[selected].y;
 	mlx->width = monitors[selected].width;
 	mlx->height = monitors[selected].height;
 	XRRFreeMonitors(monitors);

@@ -36,8 +36,6 @@ typedef struct s_image
 
 typedef struct s_mlx
 {
-	int		screen_x;
-	int		screen_y;
 	int		height;
 	int		width;
 	void	*mlx;
