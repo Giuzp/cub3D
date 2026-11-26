@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minimap.c                                          :+:      :+:    :+:   */
+/*   settings.json                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/25 20:18:35 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/25 20:20:14 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 11:22:39 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 11:24:43 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,12 @@ void	render_minimap(t_config *conf)
 	conf->mp.minimap = NULL;
 }
 
+/**
+ * @brief	Fills the minimap buffer
+ * 
+ * @param[in]	conf	Conf struct with minimap structure and sizes
+ * @param[in]	pos		Player positions, here only to respect the 42 norm
+ */
 static void	generate_minimap_buffer(t_config *conf, double *pos)
 {
 	int	x;
@@ -66,6 +72,11 @@ static void	generate_minimap_buffer(t_config *conf, double *pos)
 	}
 }
 
+/**
+ * @brief	Writes the minimap from the buffer to the window
+ * 
+ * @param[in]	conf	Config struct with minimap buffer and window dimension 
+ */
 static void	draw_minimap(t_config *conf)
 {
 	int	x;

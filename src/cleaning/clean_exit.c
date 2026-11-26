@@ -5,14 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/25 18:42:14 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/25 18:42:58 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 11:07:33 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 11:14:08 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 #include <string.h>
 
+/**
+ * @brief	Cleans the config and exit code structs and exits with the correct
+ * 			message and exit code
+ * 
+ * @param[in]	err			The exit code
+ * @param[in]	msg			The message to display in the terminal
+ * @param[in]	conf		The config to free
+ * @param[in]	exit_code	The exit code struct to free
+ */
 void	clean_exit(t_error err, char *msg, t_config *conf,
 		t_exit_code *exit_code)
 {
@@ -29,6 +38,11 @@ void	clean_exit(t_error err, char *msg, t_config *conf,
 	exit(error_code);
 }
 
+/**
+ * @brief	Cleans the config struct
+ * 
+ * @param[in]	config	Config struct to free
+ */
 void	clean_config(t_config *config)
 {
 	if (!config)
@@ -44,6 +58,11 @@ void	clean_config(t_config *config)
 	free(config);
 }
 
+/**
+ * @brief	Cleans the mlx struct
+ * 
+ * @param[in]	mlx	Mlx struct to free
+ */
 void	clean_mlx(t_mlx *mlx)
 {
 	if (!mlx->mlx)
@@ -59,6 +78,11 @@ void	clean_mlx(t_mlx *mlx)
 	mlx->mlx = NULL;
 }
 
+/**
+ * @brief	Cleans the minimap struct
+ * 
+ * @param[in]	mp	Minimap to free
+ */
 void	clean_minimap(t_minimap *mp)
 {
 	if (!mp)

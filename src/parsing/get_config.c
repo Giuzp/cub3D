@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/25 21:43:50 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/25 21:46:27 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 11:05:05 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 11:06:48 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,14 @@ t_config	*get_config(char *map_path)
 	return (conf);
 }
 
+/**
+ * @brief	Check if the given path to the map file is correct
+ * 
+ * @param[in]	path	The given path to the map
+ * @return		The fd of the map file
+ * 
+ * The fd will be -1 in case of error
+ */
 static int	check_path(char *path)
 {
 	char	*ext;

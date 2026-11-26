@@ -5,13 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/25 20:16:05 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/25 20:16:05 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 11:30:53 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 11:39:26 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
+/**
+ * @brief	Inits the mlx window
+ * 
+ * @param[in]	conf	Config struct with the mlx struct
+ */
 void	init_mlx(t_config *conf)
 {
 	t_mlx	*mlx;
@@ -33,6 +38,11 @@ void	init_mlx(t_config *conf)
 	XFlush(((t_xvar *)mlx->mlx)->display);
 }
 
+/**
+ * @brief	Initialize mlx image
+ * 
+ * @param[in]	conf	Config struct with the mlx struct
+ */
 void	init_image(t_config *conf)
 {
 	t_image	*frame;
