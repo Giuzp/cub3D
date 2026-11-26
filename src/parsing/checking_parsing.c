@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 21:32:11 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 21:32:11 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 21:35:21 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 21:39:29 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,11 @@ int	check_color(char *line, int i, t_exit_code *exit_code)
  */
 int	free_array_code_init(char **array, t_exit_code *exit_code)
 {
+	if (!array)
+	{
+		exit_code_init(exit_code, E_MALLOC, MALLOC);
+		return (1);
+	}
 	free_split(array);
 	exit_code_init(exit_code, E_COL_M, COL_M);
 	return (1);
@@ -116,25 +121,21 @@ int	check_other_identifier(char *line)
 int	check_if_path_exist(char *line, int i, t_exit_code *exit_code)
 {
 	int		fd;
-	char	*buffer;
 
-	i = crop_isspace(line, i);
-	fd = open(&line[i], O_DIRECTORY);
+	i = crop_isspace(line, i + 2);
+	fd = open(line + i, O_RDONLY | O_DIRECTORY);
 	if (fd >= 0)
 	{
 		close(fd);
 		exit_code_init(exit_code, E_OPEN, OPEN);
 		return (1);
 	}
-	fd = open(&line[i], O_RDONLY);
-	buffer = ft_strndup(line + 3, ft_strlen(line + 3));
-	fd = open(buffer, O_RDONLY);
+	fd = open(line + i, O_RDONLY);
 	if (fd < 0)
 	{
 		exit_code_init(exit_code, E_OPEN, OPEN);
 		return (1);
 	}
 	close(fd);
-	free(buffer);
 	return (0);
 }
