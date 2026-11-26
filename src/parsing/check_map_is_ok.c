@@ -63,7 +63,7 @@ void	init_id(t_check_id *id)
  */
 int	check_id(char **line, t_check_id *id, int fd)
 {
-	while (*line[0] != '1')
+	while (*line[0] != '1' && !check_all_id(id))
 	{
 		if (*line[0] == ' ')
 		{

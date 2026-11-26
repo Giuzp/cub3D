@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/26 11:44:20 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 11:44:20 by dcresce          ###   ########.ch       */
+/*   Updated: 2026/11/26 13:49:47 by jturrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,10 @@ static void	draw_minimap(t_config *conf)
 		{
 			if (conf->mp.minimap[y][x] == '1')
 				put_pixel(&conf->mlx.frame, x + conf->mp.offset_x,
-					y + conf->mp.offset_y, 0x00808080);
+					y + conf->mp.offset_y, 0x00FFF4D7);
 			else if (conf->mp.minimap[y][x] == '0')
 				put_pixel(&conf->mlx.frame, x + conf->mp.offset_x,
-					y + conf->mp.offset_y, 0x00FFFFFF);
+					y + conf->mp.offset_y, 0x009ECF70);
 			else
 				put_pixel(&conf->mlx.frame, x + conf->mp.offset_x,
 					y + conf->mp.offset_y, 0x0087CEEB);

@@ -6,15 +6,13 @@
 /*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/19 11:56:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 13:21:12 by jturrel          ###   ########.fr       */
+/*   Updated: 2026/11/26 13:43:44 by jturrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
 static int	check_path(char *path);
-
-static t_config	*conf_init(void);
 
 /**
  * @brief	Loads the map configuration from a .cub file
@@ -34,8 +32,6 @@ t_config	*get_config(char *map_path)
 	fd = check_path(map_path);
 	if (fd < 0)
 		clean_exit(E_OPEN, OPEN, NULL, NULL);
-	//to remove later
-	conf = conf_init();
 	conf = read_store_cubfile(fd, map_path);
 	map = store_map(fd);
 	validate_map(map, p_pos, &(conf->p_dir));
@@ -74,6 +70,23 @@ static int	check_path(char *path)
 	return (fd);
 }
 
+int	check_all_id(t_check_id *id)
+{
+	if (id->no_id == false)
+		return (0);
+	if (id->so_id == false)
+		return (0);
+	if (id->ea_id == false)
+		return (0);
+	if (id->we_id == false)
+		return (0);
+	if (id->f_id == false)
+		return (0);
+	if (id->c_id == false)
+		return (0);
+	return (1);
+}
+
 //HELPER FUNCTIONS TO DESTROY LATER
 //---------------------------------------------------------------
 /**
@@ -91,21 +104,4 @@ void	print_map(char **map)
 		printf("%s\n", map[i]);
 		i++;
 	}
-}
-
-/**
- * @brief	Allocates and initializes an empty config struct
- *
- * @return		A newly allocated config struct
- *
- * The caller is responsible for freeing the returned configuration
- */
-static t_config	*conf_init(void)
-{
-	t_config	*conf;
-
-	conf = ft_calloc(1, sizeof(*conf));
-	if (!conf)
-		clean_exit(E_MALLOC, MALLOC, NULL, NULL);
-	return (conf);
 }
