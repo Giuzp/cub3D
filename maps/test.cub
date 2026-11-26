@@ -1,5 +1,5 @@
-SO ./textures/mur_buisson_labyrinthe.xpm
-NO ./textures/mur_pierre_chaines.xpm
+SO ./textures/NORTH.xpm
+NO ./textures/NORTH.xpm
 EA ./textures/mur_pierre_lianes.xpm
 WE ./textures/mur_pierre_sang_lianes.xpm
 
