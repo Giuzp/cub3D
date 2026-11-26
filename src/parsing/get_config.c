@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_config.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/19 11:56:46 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 13:43:44 by jturrel          ###   ########.fr       */
+/*   Created: 2026/11/26 14:42:34 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 14:45:51 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,13 @@ static int	check_path(char *path)
 	return (fd);
 }
 
+/**
+ * @brief	Checks if all the paths and colors have been found
+ * 
+ * @param[in]	id	id struct
+ * 
+ * Used in check_map_is_ok, here only to respect norminette
+ */
 int	check_all_id(t_check_id *id)
 {
 	if (id->no_id == false)
