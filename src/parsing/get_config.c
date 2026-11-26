@@ -6,7 +6,7 @@
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/26 21:40:17 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 21:40:17 by dcresce          ###   ########.ch       */
+/*   Updated: 2026/11/26 21:42:50 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	check_all_id(t_check_id *id)
  * @brief	Check for the correct syntax of the color line
  * 
  * @param[in]	str	String with the color line
- * return	1 on success, 0 on failure
+ * @return	1 on success, 0 on failure
  *
  * Used in checking_parsing, here only to respect norminette
  */
