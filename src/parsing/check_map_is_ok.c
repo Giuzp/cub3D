@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_is_ok.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 14:44:46 by jturrel           #+#    #+#             */
-/*   Updated: 2026/11/26 14:44:51 by jturrel          ###   ########.fr       */
+/*   Created: 2026/11/26 14:52:02 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 14:52:41 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	check_map_is_ok(int fd, t_exit_code *exit_code)
 
 	init_id(id);
 	line = gnl(fd);
-	if (!line  || line[0] == 1)
+	if (!line || line[0] == 1)
 	{
 		close(fd);
 		if (!line)
@@ -69,8 +69,8 @@ void	init_id(t_check_id *id)
  * @brief	Reads configuration lines and marks the identifiers found
  *
  * @param[in,out]	line	Current line, replaced while reading the file
- * @param[out]	id		Struct containing the identifier flags
- * @param[in]	fd		Map file descriptor to read
+ * @param[out]		id		Struct containing the identifier flags
+ * @param[in]		fd		Map file descriptor to read
  * @return		0 when the map is reached, 1 on an unknown identifier
  */
 int	check_id(char **line, t_check_id *id, int fd)
@@ -79,7 +79,7 @@ int	check_id(char **line, t_check_id *id, int fd)
 	{
 		if (*line[0] == ' ')
 		{
-			*line = trim_line(*line); // leak ? check 
+			*line = trim_line(*line);
 			continue ;
 		}
 		if (*line[0] == 'N')
@@ -111,7 +111,6 @@ int	check_id(char **line, t_check_id *id, int fd)
 void	close_and_free(int fd, char *line)
 {
 	(void)fd;
-//	close(fd);
 	if (line)
 		free(line);
 }

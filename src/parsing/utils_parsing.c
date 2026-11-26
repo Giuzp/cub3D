@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_parsing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 14:45:59 by jturrel           #+#    #+#             */
-/*   Updated: 2026/11/26 14:46:00 by jturrel          ###   ########.fr       */
+/*   Created: 2026/11/26 14:56:56 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 14:57:30 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int	only_numbers(char *str, t_exit_code *exit_code)
 	}
 	return (0);
 }
+
 char	*ft_strndup(char *str, int n)
 {
 	char	*dup;
@@ -91,10 +92,10 @@ char	*ft_strndup(char *str, int n)
 	dup = malloc(sizeof(char) * n + 1);
 	if (!dup)
 		return (NULL);
-	while(i < n)
+	while (i < n)
 	{
 		dup[i] = str[i];
-		i++; 
+		i++;
 	}
 	dup[i] = '\0';
 	return (dup);

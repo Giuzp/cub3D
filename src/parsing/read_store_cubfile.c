@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_store_cubfile.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 14:45:10 by jturrel           #+#    #+#             */
-/*   Updated: 2026/11/26 14:45:19 by jturrel          ###   ########.fr       */
+/*   Created: 2026/11/26 14:56:13 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 14:56:31 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_config	*read_store_cubfile(int fd, char *map_path)
 		clean_exit(E_MALLOC, MALLOC, NULL, NULL);
 	buffer = NULL;
 	buffer = read_fd(fd, map_path, exit_code);
-	config = config_init(buffer, exit_code); // if config = nULL ....
+	config = config_init(buffer, exit_code);
 	free_split(buffer);
 	if (!config)
 		clean_exit(exit_code->code, exit_code->message, config, exit_code);
@@ -128,7 +128,7 @@ int	parse_line(char **line, t_exit_code *exit_code)
 	buffer = NULL;
 	buffer = ft_strtrim(*line, " ");
 	free_and_null(line);
-	*line = ft_strdup(buffer); // leak ?
+	*line = ft_strdup(buffer);
 	if (!buffer)
 	{
 		exit_code_init(exit_code, E_MALLOC, MALLOC);

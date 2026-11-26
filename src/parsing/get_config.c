@@ -5,14 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 14:42:34 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 14:45:51 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 14:55:36 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 14:55:54 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
-
-static int	check_path(char *path);
 
 /**
  * @brief	Loads the map configuration from a .cub file
@@ -92,23 +90,4 @@ int	check_all_id(t_check_id *id)
 	if (id->c_id == false)
 		return (0);
 	return (1);
-}
-
-//HELPER FUNCTIONS TO DESTROY LATER
-//---------------------------------------------------------------
-/**
- * @brief	Prints the map in the terminal
- *
- * @param[in]	map	Array containing the map lines
- */
-void	print_map(char **map)
-{
-	int	i = 0;
-
-	printf("\n");
-	while (map[i])
-	{
-		printf("%s\n", map[i]);
-		i++;
-	}
 }

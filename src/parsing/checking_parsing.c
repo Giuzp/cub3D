@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checking_parsing.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 14:44:55 by jturrel           #+#    #+#             */
-/*   Updated: 2026/11/26 14:44:56 by jturrel          ###   ########.fr       */
+/*   Created: 2026/11/26 14:53:12 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 14:55:09 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ int	check_color(char *line, int i, t_exit_code *exit_code)
 	array_index = 0;
 	i++;
 	i = crop_isspace(line, i);
-	number_array = ft_split(&line[i], ',');//pars if more than 3 quote
+	number_array = ft_split(&line[i], ',');
 	if (!number_array || !number_array[1])
 		return (free_array_code_init(number_array, exit_code));
-	while (array_index < 3 && number_array[array_index] )
+	while (array_index < 3 && number_array[array_index])
 	{
 		if (ft_strlen(number_array[array_index]) > 3)
 			return (free_array_code_init(number_array, exit_code));
