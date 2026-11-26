@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 21:03:57 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 21:04:26 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 22:39:15 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 22:39:19 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 // enum for the errors
 typedef enum e_error
 {
+	E_NO_ERR,
 	E_MALLOC,
 	E_ARGS,
 	E_EXT,
