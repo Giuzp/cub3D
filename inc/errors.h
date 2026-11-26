@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 20:44:35 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/27 20:45:14 by dcresce          ###   ########.ch       */
+/*   Updated: 2026/11/26 14:38:36 by jturrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ typedef enum e_error
 	E_MLX_INIT,
 	E_WIN_FAIL,
 	E_IMG_FAIL,
-	E_ADDR_FAIL
+	E_ADDR_FAIL,
+	E_NO_MAP
 }	t_error;
 
 typedef struct s_exit_code
@@ -63,6 +64,7 @@ typedef struct s_exit_code
 # define EMPTY_L	"Error! Empty line in map!"
 # define OPEN_MAP	"Error! The map is open!"
 # define HOLE_MAP	"Error! The map has a hole!"
+# define NO_MAP		"Error! No map in file!"
 
 // mlx errors
 # define MLX_INIT	"Error! MLX failed to initialize!"

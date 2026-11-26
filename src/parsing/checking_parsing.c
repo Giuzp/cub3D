@@ -42,7 +42,7 @@ int	check_color(char *line, int i, t_exit_code *exit_code)
 	number_array = ft_split(&line[i], ',');//pars if more than 3 quote
 	if (!number_array || !number_array[1])
 		return (free_array_code_init(number_array, exit_code));
-	while (array_index > 2 && number_array[array_index] )
+	while (array_index < 3 && number_array[array_index] )
 	{
 		if (ft_strlen(number_array[array_index]) > 3)
 			return (free_array_code_init(number_array, exit_code));

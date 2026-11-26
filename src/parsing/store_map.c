@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   store_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 20:32:13 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/22 14:20:02 by dcresce          ###   ########.ch       */
+/*   Updated: 2026/11/26 14:38:18 by jturrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static char	*get_map_in_one_string(int fd)
 
 	new_line = gnl(fd);
 	if (!new_line)
-		clean_exit(E_MALLOC, MALLOC, NULL, NULL);
+		clean_exit(E_NO_MAP, NO_MAP, NULL, NULL);
 	line = ft_strdup("");
 	if (!line)
 		clean_exit(E_MALLOC, MALLOC, NULL, NULL);
