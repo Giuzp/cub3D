@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_config.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 14:55:36 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 18:54:10 by jturrel          ###   ########.fr       */
+/*   Created: 2026/11/26 21:22:45 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 21:24:06 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,35 @@ int	check_all_id(t_check_id *id)
 	if (id->c_id == false)
 		return (0);
 	return (1);
+}
+
+/**
+ * @brief	Check for the correct syntax of the color line
+ * 
+ * @param[in]	str	String with the color line
+ * return	1 on success, 0 on failure
+ *
+ * Used in checking_parsing, here only to respect norminette
+ */
+bool	check_color_commas(char *str)
+{
+	int	i;
+	int	commas;
+
+	if (!str)
+		return (false);
+	i = 0;
+	commas = 0;
+	while (str[i])
+	{
+		if (str[i] == ',')
+		{
+			if (i == 0 || !ft_isdigit(str[i - 1])
+				|| !ft_isdigit(str[i + 1]))
+				return (false);
+			commas++;
+		}
+		i++;
+	}
+	return (commas == 2);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 21:05:03 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 21:05:03 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 21:21:29 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 21:21:33 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ char		*trim_line(char *line);
 t_config	*config_init(char **buffer, t_exit_code *exit_code);
 char		*ft_strndup(char *str, int n);
 int			check_all_id(t_check_id *id);
+bool		check_color_commas(char *str);
 
 //Map store and validation
 char		**store_map(int fd);			//store the map from the .cub file

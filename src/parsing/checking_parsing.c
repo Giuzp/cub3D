@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 20:43:14 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 20:43:19 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 21:21:10 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 21:21:14 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,11 @@ int	check_color(char *line, int i, t_exit_code *exit_code)
 	array_index = 0;
 	i++;
 	i = crop_isspace(line, i);
+	if (!check_color_commas(&line[i]))
+	{
+		exit_code_init(exit_code, E_COL_M, COL_M);
+		return (1);
+	}
 	number_array = ft_split(&line[i], ',');
 	if (!number_array || !number_array[1])
 		return (free_array_code_init(number_array, exit_code));
