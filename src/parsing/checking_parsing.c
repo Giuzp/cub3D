@@ -89,13 +89,13 @@ int	check_if_path_exist(char *line, int i, t_exit_code *exit_code)
 	char	*buffer;
 
 	i = crop_isspace(line, i);
-	// fd = open(&line[i], O_DIRECTORY);
-	// if (fd >= 0)
-	// {
-	// 	close(fd);
-	// 	exit_code_init(exit_code, E_OPEN, OPEN);
-	// 	return (1);
-	// }
+	fd = open(&line[i], O_DIRECTORY);
+	if (fd >= 0)
+	{
+		close(fd);
+		exit_code_init(exit_code, E_OPEN, OPEN);
+		return (1);
+	}
 	fd = open(&line[i], O_RDONLY);	
 	buffer = ft_strndup(line + 3, ft_strlen(line + 3) - 1);
 	fd = open(buffer, O_RDONLY);
