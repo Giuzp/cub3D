@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 20:53:59 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 20:53:59 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 21:05:03 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 21:05:03 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_CONFIG_H
 # define GET_CONFIG_H
-
+# define MAX_WALKABLE_TILES 4096
 # include "cub.h"
 
 //get config from the .cub file
@@ -39,5 +39,5 @@ void		validate_map(char **map, int p_pos[2], char *p_dir);	//check map
 int			count_lines(char **map);		//count lines in map
 char		**dup_array(char **array);		//duplicates the map for flood fill
 bool		check_for_missing_spots(char **map, int *x, int *y);
-
+void		count_walkable_tiles(char **map, int i, int j);
 #endif

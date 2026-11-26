@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/19 11:49:59 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/19 11:50:16 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 21:05:12 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 21:05:16 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,10 @@ static void	check_chars_and_pos(char **map, int p_pos[2], char *p_dir)
 	i = -1;
 	while (map[++i])
 	{
-		j = 0;
-		while (map[i][j])
+		j = -1;
+		while (map[i][++j])
 		{
+			count_walkable_tiles(map, i, j);
 			if (!ft_strchr("01NSWE ", map[i][j]))
 				clean_exit(E_CHAR_UN, CHAR_UN, NULL, NULL);
 			if (ft_strchr("NSWE", map[i][j]))
@@ -69,7 +70,6 @@ static void	check_chars_and_pos(char **map, int p_pos[2], char *p_dir)
 				*p_dir = map[i][j];
 				map[i][j] = '0';
 			}
-			j++;
 		}
 	}
 	if (!*p_dir)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_map_helpers.c                             :+:      :+:    :+:   */
+/*   settings.json                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/22 14:20:33 by dcresce           #+#    #+#             */
-/*   Updated: 2026/10/22 14:20:33 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 21:08:37 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 21:08:37 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,27 @@ bool	check_for_missing_spots(char **map, int *x, int *y)
 		i++;
 	}
 	return (false);
+}
+
+/**
+ * @brief	Counts the number of tiles in the map and gives an
+ * 			error if there are too much tiles
+ * 
+ * @param[in]	map	Map array
+ * @param[in]	i	Row of the tile
+ * @param[in]	j	Column of the tile
+ */
+void	count_walkable_tiles(char **map, int i, int j)
+{
+	static int	walkable = 0;
+
+	if (ft_strchr("0NSEW", map[i][j]))
+	{
+		walkable++;
+		if (walkable > MAX_WALKABLE_TILES)
+		{
+			walkable = 0;
+			clean_exit(E_MAP_XXL, MAP_XXL, NULL, NULL);
+		}
+	}
 }
