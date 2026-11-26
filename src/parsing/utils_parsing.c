@@ -1,5 +1,13 @@
 #include "cub.h"
 
+/**
+ * @brief	Trims spaces from both ends of an allocated line
+ *
+ * @param[in]	line	Allocated line, freed by this function
+ * @return		A newly allocated trimmed line, or NULL on allocation failure
+ *
+ * The caller is responsible for freeing the returned line
+ */
 char	*trim_line(char *line)
 {
 	char	*tmp;
@@ -12,12 +20,26 @@ char	*trim_line(char *line)
 	return (line);
 }
 
+/**
+ * @brief	Stores an error code and message in the exit code struct
+ *
+ * @param[out]	exit_code	Exit code struct to fill
+ * @param[in]	code_error	Error code to store
+ * @param[in]	message		Error message to store without copying
+ */
 void	exit_code_init(t_exit_code *exit_code, int code_error, char *message)
 {
 	exit_code->code = code_error;
 	exit_code->message = message;
 }
 
+/**
+ * @brief	Skips spaces from the given index in a line
+ *
+ * @param[in]	line	Line to read
+ * @param[in]	i		Starting index
+ * @return		Index of the first character that is not a space
+ */
 int	crop_isspace(char *line, int i)
 {
 	while (line[i] == ' ')
@@ -25,6 +47,13 @@ int	crop_isspace(char *line, int i)
 	return (i);
 }
 
+/**
+ * @brief	Checks that the string contains only decimal digits
+ *
+ * @param[in]	str			String to check
+ * @param[out]	exit_code	Exit code struct to fill on an invalid character
+ * @return		0 if all characters are digits, 1 otherwise
+ */
 int	only_numbers(char *str, t_exit_code *exit_code)
 {
 	int	i;

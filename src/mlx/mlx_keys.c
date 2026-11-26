@@ -12,6 +12,13 @@
 
 #include "cub.h"
 
+/**
+ * @brief	Handles key presses and toggles the minimap
+ *
+ * @param[in]	k		Key code received from mlx
+ * @param[in]	conf	Config struct with the game state
+ * @return		0
+ */
 int	key_hook(int k, t_config *conf)
 {
 	if (k == ESC)
@@ -25,6 +32,12 @@ int	key_hook(int k, t_config *conf)
 	return (0);
 }
 
+/**
+ * @brief	Stops the mlx event loop
+ *
+ * @param[in]	conf	Config struct with the mlx connection
+ * @return		0
+ */
 int	close_window(t_config *conf)
 {
 	mlx_loop_end(conf->mlx.mlx);

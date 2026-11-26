@@ -12,6 +12,13 @@
 
 #include "cub.h"
 
+/**
+ * @brief	Loads the map and starts the game loop
+ *
+ * @param[in]	argc	Number of command line arguments
+ * @param[in]	argv	Program name and path to the map file
+ * @return		0 on normal exit
+ */
 int	main(int argc, char **argv)
 {
 	t_config	*conf;

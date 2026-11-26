@@ -6,9 +6,14 @@ int	atoi_color_data(char **buffer, char *line, t_config *config,
 int	essential_data(char *line);
 int	put_color_data(char *line, t_config *config, int i, t_exit_code *exit_code);
 
-/*
-
-	* this is the main function for adding data from our buffer to our main struct "config"
+/**
+ * @brief	Creates a config struct from the configuration lines
+ *
+ * @param[in]	buffer		Array containing the texture and color lines
+ * @param[out]	exit_code	Exit code struct to fill in case of error
+ * @return		A newly allocated config struct, or NULL on error
+ *
+ * The caller is responsible for freeing the returned configuration
  */
 t_config	*config_init(char **buffer, t_exit_code *exit_code)
 {
@@ -36,10 +41,13 @@ t_config	*config_init(char **buffer, t_exit_code *exit_code)
 	return (config);
 }
 
-/*
-
-	* we keep in i the len when there is only the information we wanna keep in the struct
- * then depends on the identifier we add the data in the good variable.
+/**
+ * @brief	Stores a texture path or color in the config struct
+ *
+ * @param[in]	line		Configuration line to read
+ * @param[in,out]	config		Config struct to update
+ * @param[out]	exit_code	Exit code struct to fill in case of error
+ * @return		0 on success, 1 on error
  */
 int	put_data_on_config(char *line, t_config *config, t_exit_code *exit_code)
 {
@@ -65,8 +73,14 @@ int	put_data_on_config(char *line, t_config *config, t_exit_code *exit_code)
 	return (0);
 }
 
-/*
- * we split and parse colour data
+/**
+ * @brief	Splits and stores the color components
+ *
+ * @param[in]	line		Line containing the color identifier and values
+ * @param[in,out]	config		Config struct to update
+ * @param[in]	i			Index of the first color value
+ * @param[out]	exit_code	Exit code struct to fill in case of error
+ * @return		0 on success, 1 on error
  */
 int	put_color_data(char *line, t_config *config, int i, t_exit_code *exit_code)
 {
@@ -85,8 +99,14 @@ int	put_color_data(char *line, t_config *config, int i, t_exit_code *exit_code)
 	return (0);
 }
 
-/*
- * this function parse colour values and put it in the good variable struct.
+/**
+ * @brief	Converts and stores color values between 0 and 255
+ *
+ * @param[in]	buffer		Array containing the color components
+ * @param[in]	line		Line identifying the floor or ceiling color
+ * @param[in,out]	config		Config struct to update
+ * @param[out]	exit_code	Exit code struct to fill in case of error
+ * @return		0 on success, 1 on error
  */
 int	atoi_color_data(char **buffer, char *line, t_config *config,
 		t_exit_code *exit_code)
@@ -114,8 +134,11 @@ int	atoi_color_data(char **buffer, char *line, t_config *config,
 	return (0);
 }
 
-/*
- * We skip all the futile data from line.
+/**
+ * @brief	Skips identifier characters and spaces before the data
+ *
+ * @param[in]	line	Configuration line to read
+ * @return		Index where the configuration value begins
  */
 int	essential_data(char *line)
 {

@@ -6,11 +6,15 @@ char		**read_fd(int fd, char *map_path, t_exit_code *exit_code);
 int			parse_colour_and_texture(int fd, char **buffer,
 				t_exit_code *exit_code);
 
-/*This function is the main function for parsing
- * texture and colours. Buffer is initialized here
- * for putting values from map in our struct.
+/**
+ * @brief	Reads texture and color data into a config struct
+ *
+ * @param[in]	fd			Map file descriptor, closed while checking the file
+ * @param[in]	map_path	Path used to reopen the map file
+ * @return		A newly allocated config struct
+ *
+ * The caller is responsible for freeing the returned configuration
  */
-
 t_config	*read_store_cubfile(int fd, char *map_path)
 {
 	char		**buffer;
@@ -31,11 +35,16 @@ t_config	*read_store_cubfile(int fd, char *map_path)
 	return (config);
 }
 
-/*
- * first check for parsing if map is after colours and texture
- * Then we parse colours and textures values line by line.
+/**
+ * @brief	Checks the configuration order and reads its six lines
+ *
+ * @param[in]	fd			Map file descriptor, closed during the initial check
+ * @param[in]	map_path	Path used to reopen the map file
+ * @param[in,out]	exit_code	Exit code struct used for error handling
+ * @return		An allocated array containing the configuration lines
+ *
+ * The caller is responsible for freeing the returned array
  */
-
 char	**read_fd(int fd, char *map_path, t_exit_code *exit_code)
 {
 	char	**buffer;
@@ -54,10 +63,13 @@ char	**read_fd(int fd, char *map_path, t_exit_code *exit_code)
 	return (buffer);
 }
 
-/*
- * During GNL, we parse directly the line, if not correct we exit
- * and free everything. Else if correct, we put in buffer by a dup for
- * free line and avoid leeks.
+/**
+ * @brief	Validates and stores the texture and color lines
+ *
+ * @param[in]	fd			Map file descriptor to read
+ * @param[out]	buffer		Allocated array to fill with copies of the lines
+ * @param[in,out]	exit_code	Exit code struct used for error handling
+ * @return		0 on success; exits on error
  */
 int	parse_colour_and_texture(int fd, char **buffer, t_exit_code *exit_code)
 {
@@ -87,9 +99,12 @@ int	parse_colour_and_texture(int fd, char **buffer, t_exit_code *exit_code)
 	return (0);
 }
 
-/*
- * In case the line are full of space, we first trim the line.
- * Then we check the identifier.
+/**
+ * @brief	Trims spaces and checks the configuration identifier
+ *
+ * @param[in,out]	line		Allocated line to trim and replace
+ * @param[out]	exit_code	Exit code struct to fill in case of error
+ * @return		0 on success or an empty line, 1 on error
  */
 int	parse_line(char **line, t_exit_code *exit_code)
 {

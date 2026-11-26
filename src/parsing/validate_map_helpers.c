@@ -63,6 +63,14 @@ char	**dup_array(char **array)
 	return (dup);
 }
 
+/**
+ * @brief	Finds an unvisited floor cell after a flood fill
+ *
+ * @param[in]	map	Map containing the visited cells
+ * @param[out]	x	X coordinate of the unvisited cell
+ * @param[out]	y	Y coordinate of the unvisited cell
+ * @return		true if a cell was found, false otherwise
+ */
 bool	check_for_missing_spots(char **map, int *x, int *y)
 {
 	int	i;

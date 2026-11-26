@@ -5,9 +5,12 @@ int		check_id(char **line, t_check_id *id, int fd);
 int		check_flag_id(t_check_id *id, t_exit_code *exit_code);
 void	close_and_free(int fd, char *line);
 
-/*
- * In this function we will check if there is all the information we need
- * before map shows up.
+/**
+ * @brief	Checks that all required identifiers appear before the map
+ *
+ * @param[in]	fd			Map file descriptor, closed by this function
+ * @param[out]	exit_code	Exit code struct to fill in case of error
+ * @return		0 on success, 1 on error
  */
 int	check_map_is_ok(int fd, t_exit_code *exit_code)
 {
@@ -35,8 +38,10 @@ int	check_map_is_ok(int fd, t_exit_code *exit_code)
 	return (check_flag_id(id, exit_code));
 }
 
-/*
- * initialisation of our ID struct, all variable are a flag
+/**
+ * @brief	Initializes the identifier flags to false
+ *
+ * @param[out]	id	Struct containing the identifier flags
  */
 void	init_id(t_check_id *id)
 {
@@ -48,9 +53,13 @@ void	init_id(t_check_id *id)
 	id->c_id = false;
 }
 
-/*
- * everytime an identifier is find a flag up and if not
- * correct identifier we exit.
+/**
+ * @brief	Reads configuration lines and marks the identifiers found
+ *
+ * @param[in,out]	line	Current line, replaced while reading the file
+ * @param[out]	id		Struct containing the identifier flags
+ * @param[in]	fd		Map file descriptor to read
+ * @return		0 when the map is reached, 1 on an unknown identifier
  */
 int	check_id(char **line, t_check_id *id, int fd)
 {
@@ -78,8 +87,11 @@ int	check_id(char **line, t_check_id *id, int fd)
 	return (0);
 }
 
-/*
- * function for close fd and free line if needed.
+/**
+ * @brief	Closes the file descriptor and frees the current line
+ *
+ * @param[in]	fd		File descriptor to close
+ * @param[in]	line	Allocated line to free
  */
 void	close_and_free(int fd, char *line)
 {
@@ -88,9 +100,12 @@ void	close_and_free(int fd, char *line)
 		free(line);
 }
 
-/*
- * Last check, if all flag are up than means we have all the
- * information before map. If not we initialized exit code struct.
+/**
+ * @brief	Checks that all required identifier flags are set
+ *
+ * @param[in]	id			Struct containing the identifier flags
+ * @param[out]	exit_code	Exit code struct to fill if an identifier is missing
+ * @return		0 if all identifiers were found, 1 otherwise
  */
 int	check_flag_id(t_check_id *id, t_exit_code *exit_code)
 {

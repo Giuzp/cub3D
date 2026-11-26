@@ -12,6 +12,12 @@
 
 #include "cub.h"
 
+/**
+ * @brief	Renders the minimap when it is enabled
+ *
+ * @param[in]	conf	Config struct with the minimap state
+ * @return		0
+ */
 int	render_frame(t_config *conf)
 {
 	static bool	mp_rendered = false;

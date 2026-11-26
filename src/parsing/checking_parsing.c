@@ -5,12 +5,14 @@ int	check_other_identifier(char *line);
 int	check_if_path_exist(char *line, int i, t_exit_code *exit_code);
 int	free_array_code_init(char **array, t_exit_code *exit_code);
 
-/*
- * Here we check if the identifier are correct, if not we
- * initialized exit code struct. Depends of the identifier
- * we check the color or if the path of texture exist.
+/**
+ * @brief	Checks the configuration identifier and its color data
+ *
+ * @param[in]	line		Configuration line to check
+ * @param[in]	i			Index of the identifier in the line
+ * @param[out]	exit_code	Exit code struct to fill in case of error
+ * @return		0 on success, 1 on error
  */
-
 int	check_identifier(char *line, int *i, t_exit_code *exit_code)
 {
 	if (line[*i] == 'C' || line[*i] == 'F')
@@ -21,12 +23,14 @@ int	check_identifier(char *line, int *i, t_exit_code *exit_code)
 	return (1);
 }
 
-/*
- * we start by split the numbers composing the colour value
- * then we put them in an array and check line by line
- * if they are not more than 3 line or 3 character.
+/**
+ * @brief	Checks the number and length of the color components
+ *
+ * @param[in]	line		Line containing the color identifier and values
+ * @param[in]	i			Index of the color identifier
+ * @param[out]	exit_code	Exit code struct to fill in case of error
+ * @return		0 on success, 1 on error
  */
-
 int	check_color(char *line, int i, t_exit_code *exit_code)
 {
 	char	**number_array;
@@ -51,9 +55,12 @@ int	check_color(char *line, int i, t_exit_code *exit_code)
 	return (0);
 }
 
-/*
- * utils function for free the array and initialized
- * the exit code struct.
+/**
+ * @brief	Frees the array and sets the color format error
+ *
+ * @param[in]	array		Allocated array to free
+ * @param[out]	exit_code	Exit code struct to fill
+ * @return		1
  */
 int	free_array_code_init(char **array, t_exit_code *exit_code)
 {
@@ -62,8 +69,11 @@ int	free_array_code_init(char **array, t_exit_code *exit_code)
 	return (1);
 }
 
-/*
- * check texture identifier
+/**
+ * @brief	Checks if the line starts with a texture identifier
+ *
+ * @param[in]	line	Configuration line to check
+ * @return		1 if the identifier is recognized, 0 otherwise
  */
 int	check_other_identifier(char *line)
 {
@@ -78,9 +88,13 @@ int	check_other_identifier(char *line)
 	return (0);
 }
 
-/*
- * function for checking if the path is correct, starting by checking
- * if the path is not a directory, then if is a correct file.
+/**
+ * @brief	Checks that the texture path is a readable file
+ *
+ * @param[in]	line		Line containing the texture path
+ * @param[in]	i			Index where the path or leading spaces begin
+ * @param[out]	exit_code	Exit code struct to fill in case of error
+ * @return		0 on success, 1 on error
  */
 int	check_if_path_exist(char *line, int i, t_exit_code *exit_code)
 {

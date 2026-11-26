@@ -76,6 +76,11 @@ static int	check_path(char *path)
 
 //HELPER FUNCTIONS TO DESTROY LATER
 //---------------------------------------------------------------
+/**
+ * @brief	Prints the map in the terminal
+ *
+ * @param[in]	map	Array containing the map lines
+ */
 void	print_map(char **map)
 {
 	int	i = 0;
@@ -88,6 +93,13 @@ void	print_map(char **map)
 	}
 }
 
+/**
+ * @brief	Allocates and initializes an empty config struct
+ *
+ * @return		A newly allocated config struct
+ *
+ * The caller is responsible for freeing the returned configuration
+ */
 static t_config	*conf_init(void)
 {
 	t_config	*conf;

@@ -15,7 +15,14 @@
 static int	has_monitor_support(t_xvar *xvar);
 static int	select_primary_monitor(XRRMonitorInfo *monitors, int count);
 
-/* Returns 1 on success; on failure, leaves the monitor geometry unchanged. */
+/**
+ * @brief	Stores the selected monitor position and dimensions
+ *
+ * @param[in,out]	mlx	Mlx struct with the connection and window geometry
+ * @return		1 on success, 0 if monitor geometry could not be retrieved
+ *
+ * The geometry is unchanged on failure
+ */
 int	get_monitor_size(t_mlx *mlx)
 {
 	t_xvar			*xvar;
@@ -44,6 +51,12 @@ int	get_monitor_size(t_mlx *mlx)
 	return (1);
 }
 
+/**
+ * @brief	Checks if the display supports RandR 1.5 monitor queries
+ *
+ * @param[in]	xvar	Mlx connection with the X11 display
+ * @return		1 if monitor queries are supported, 0 otherwise
+ */
 static int	has_monitor_support(t_xvar *xvar)
 {
 	int	major;
@@ -58,6 +71,13 @@ static int	has_monitor_support(t_xvar *xvar)
 	return (major > 1 || (major == 1 && minor >= 5));
 }
 
+/**
+ * @brief	Finds the primary monitor in the monitor array
+ *
+ * @param[in]	monitors	Array of monitors returned by RandR
+ * @param[in]	count		Number of monitors in the array
+ * @return		Index of the primary monitor, or 0 if none is marked primary
+ */
 static int	select_primary_monitor(XRRMonitorInfo *monitors, int count)
 {
 	int	i;
