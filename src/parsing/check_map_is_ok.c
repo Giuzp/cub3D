@@ -98,7 +98,8 @@ int	check_id(char **line, t_check_id *id, int fd)
  */
 void	close_and_free(int fd, char *line)
 {
-	close(fd);
+	(void)fd;
+//	close(fd);
 	if (line)
 		free(line);
 }
