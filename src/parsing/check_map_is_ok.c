@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 20:40:24 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 20:44:39 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 22:07:55 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 22:12:12 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,40 @@ void	init_id(t_check_id *id)
 	id->ea_id = false;
 	id->f_id = false;
 	id->c_id = false;
+}
+
+int	parse_line_texture(char *str, t_check_id *id)
+{
+	check_letter(str[0], id);
+	if (str[0] == 'N' || str[0] == 'S'|| str[0] == 'W' || str[0] == 'E')
+	{
+		if (check_extention(str))
+			return (1);
+	}
+	return (0);
+}
+
+int	check_extention(char *str)
+{
+	char	*ext;
+
+	ext = ft_strrchr(str, '.');
+	if (!ext)
+		return (1);
+	if (ft_strncmp(ext, ".xpm", 4))
+		return (1);
+	return (0);
+}
+
+int	parse_line_texture(char *str, t_check_id *id)
+{
+	check_letter(str[0], id);
+	if (str[0] == 'N' || str[0] == 'S'|| str[0] == 'W' || str[0] == 'E')
+	{
+		if (check_extention(str))
+			return (1);
+	}
+	return (0);
 }
 
 /**

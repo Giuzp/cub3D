@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 21:35:21 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 21:39:29 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/26 22:12:24 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 22:13:13 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
+#include <fcntl.h>
 
 int	check_color(char *line, int i, t_exit_code *exit_code);
 int	check_other_identifier(char *line);
@@ -139,3 +140,4 @@ int	check_if_path_exist(char *line, int i, t_exit_code *exit_code)
 	close(fd);
 	return (0);
 }
+

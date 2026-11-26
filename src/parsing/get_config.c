@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 21:40:17 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 21:42:50 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/19 11:56:46 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/26 22:15:08 by jturrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,22 @@ t_config	*get_config(char *map_path)
 	conf->map = map;
 	close(fd);
 	return (conf);
+}
+
+void	check_letter(char letter, t_check_id *id)
+{
+	if (letter == 'N')
+		id->no_id = true;
+	else if (letter == 'S')
+		id->so_id = true;
+	else if (letter == 'W')
+		id->we_id = true;
+	else if (letter == 'E')
+		id->ea_id = true;
+	else if (letter == 'F')
+		id->f_id = true;
+	else if (letter == 'C')
+		id->c_id = true;
 }
 
 /**
