@@ -42,6 +42,12 @@ t_config	*get_config(char *map_path)
 	return (conf);
 }
 
+/**
+ * @brief	Marks the configuration identifier matching the given letter
+ *
+ * @param[in]		letter	First character of the identifier
+ * @param[in,out]	id		Struct containing the identifier flags
+ */
 void	check_letter(char letter, t_check_id *id)
 {
 	if (letter == 'N')

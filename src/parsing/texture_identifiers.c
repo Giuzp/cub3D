@@ -12,7 +12,14 @@
 
 #include "cub.h"
 
-/* Checks the complete extension, ignoring trailing line whitespace. */
+/**
+ * @brief	Checks for a complete .xpm extension
+ *
+ * @param[in]	str	Configuration line containing the texture path
+ * @return		0 if the extension is valid, 1 otherwise
+ *
+ * Trailing spaces and newlines are ignored
+ */
 int	check_extention(char *str)
 {
 	int	len;
@@ -25,7 +32,13 @@ int	check_extention(char *str)
 	return (ft_strncmp(str + len - 4, ".xpm", 4) != 0);
 }
 
-/* Validates an identifier and marks it as found. */
+/**
+ * @brief	Validates an identifier and its texture extension, then sets its flag
+ *
+ * @param[in]		str	Configuration line to check
+ * @param[in,out]	id	Struct containing the identifier flags
+ * @return			0 on success, 1 on an invalid identifier or extension
+ */
 int	parse_line_texture(char *str, t_check_id *id)
 {
 	if (str[0] == 'F' || str[0] == 'C')

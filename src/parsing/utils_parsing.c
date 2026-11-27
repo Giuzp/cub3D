@@ -83,6 +83,15 @@ int	only_numbers(char *str, t_exit_code *exit_code)
 	return (0);
 }
 
+/**
+ * @brief	Copies exactly n characters into a new null-terminated string
+ *
+ * @param[in]	str	Source string containing at least n characters
+ * @param[in]	n	Number of characters to copy, must be nonnegative
+ * @return		The allocated copy, or NULL on allocation failure
+ *
+ * The caller is responsible for freeing the returned string
+ */
 char	*ft_strndup(char *str, int n)
 {
 	char	*dup;
