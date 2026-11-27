@@ -159,16 +159,19 @@ int	essential_data(char *line)
 	i = 0;
 	while (line[i])
 	{
+		if (line[0] == ' ')
+			while (line[i] != ' ')
+				i++;
 		if (line[i] == 'N' || line[i] == 'W' || line[i] == 'S'
 			|| line[i] == 'E')
 			i++;
 		else if (line[i] == 'F' || line[i] == 'C' || line[i] == 'A'
 			|| line[i] == 'O')
 			i++;
-		else if (line[i] == ' ')
-			i++;
 		else
 			break ;
 	}
+	while (line[i] == ' ')
+		i++;
 	return (i);
 }
