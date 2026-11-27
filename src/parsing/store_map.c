@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   store_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/07 20:32:13 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 14:38:18 by jturrel          ###   ########.fr       */
+/*   Created: 2026/11/27 13:16:28 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/27 13:17:39 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,14 @@ char	**store_map(int fd)
 	if (!temp)
 		clean_exit(E_MALLOC, MALLOC, NULL, NULL);
 	map_one_liner = ft_strtrim(temp, "\n");
+	if (!map_one_liner)
+		clean_exit(E_MALLOC, MALLOC, NULL, NULL);
 	free(temp);
 	temp = NULL;
 	check_for_empty_lines(map_one_liner);
 	map = ft_split(map_one_liner, '\n');
+	if (!map)
+		clean_exit(E_MALLOC, MALLOC, NULL, NULL);
 	free(map_one_liner);
 	map_one_liner = NULL;
 	return (map);
