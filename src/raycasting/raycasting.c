@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/27 14:51:19 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/27 14:51:55 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/27 14:57:05 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/27 14:57:05 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 static void	draw_column(t_config *conf, int i);
 
+/**
+ * @brief	Renders one frame of the game
+ * 
+ * @param[in]	conf	config struct
+ */
 void	render_game(t_config *conf)
 {
 	int	i;
@@ -26,6 +31,12 @@ void	render_game(t_config *conf)
 	}
 }
 
+/**
+ * @brief	Draws one column of the frame
+ * 
+ * @param[in]	conf	config struct
+ * @param[in]	i		column to draw
+ */
 static void	draw_column(t_config *conf, int i)
 {
 	t_column	*col;
@@ -42,4 +53,5 @@ static void	draw_column(t_config *conf, int i)
 	render_column(conf, col, i);
 	// END OF RENDER COLUMN
 	//-------------------------------------
+	free(col);
 }
