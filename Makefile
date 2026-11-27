@@ -6,7 +6,7 @@
 #    By: jturrel <jturrel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/05 16:33:55 by dcresce           #+#    #+#              #
-#    Updated: 2026/11/26 22:07:20 by jturrel          ###   ########.fr        #
+#    Updated: 2026/11/27 14:46:15 by jturrel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,11 +59,23 @@ MINIMAP = minimap minimap_helpers
 CLEANING_DIR = src/cleaning/
 CLEANING = clean_exit clean_helpers
 
+RAYCAST_DIR = src/raycasting
+RAYCAST = raycasting 
+
+RAY_BACK_DIR = src/raycasting/backend
+RAY_BACK = 
+
+RAY_FRONT_DIR = src/raycasting/frontend
+RAY_FRONT = render_column
+
 SRC_FILES += $(MAIN)
 SRC_FILES += $(addprefix $(PARS_DIR),$(PARS))
 SRC_FILES += $(addprefix $(CLEANING_DIR),$(CLEANING))
 SRC_FILES += $(addprefix $(MLX_SRC_DIR),$(MLX))
 SRC_FILES += $(addprefix $(MINIMAP_DIR),$(MINIMAP))
+SRC_FILES += $(addprefix $(RAYCAST_DIR),$(RAYCAST))
+SRC_FILES += $(addprefix $(RAY_BACK_DIR),$(RAY_BACK))
+SRC_FILES += $(addprefix $(RAY_FRONT_DIR),$(RAY_FRONT))
 
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRC_FILES)))
@@ -98,6 +110,9 @@ $(OBJSF):
 	@mkdir -p $(OBJS_DIR)$(CLEANING_DIR)
 	@mkdir -p $(OBJS_DIR)$(MLX_SRC_DIR)
 	@mkdir -p $(OBJS_DIR)$(MINIMAP_DIR)
+	@mkdir -p $(OBJS_DIR)$(RAYCAST_DIR)
+	@mkdir -p $(OBJS_DIR)$(RAY_BACK_DIR)
+	@mkdir -p $(OBJS_DIR)$(RAY_FRONT_DIR)
 
 clean:
 	@$(RM) -rf $(OBJS_DIR)

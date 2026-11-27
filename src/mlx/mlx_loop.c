@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/24 14:18:18 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/24 14:18:18 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/27 14:37:00 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/27 14:37:09 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	render_frame(t_config *conf)
 	else
 	{
 		mp_rendered = false;
-		//display game
+		render_game(conf);
 	}
 	return (0);
 }
