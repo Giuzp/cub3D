@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 13:20:19 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 13:20:50 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/27 14:29:56 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/27 14:30:01 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@
 # include "get_config.h"
 # include "mlx_init.h"
 # include "minimap.h"
+# include "raycasting.h"
 
 #endif

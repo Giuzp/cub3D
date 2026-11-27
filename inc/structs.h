@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcresce <dcresce@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/26 20:48:30 by dcresce           #+#    #+#             */
-/*   Updated: 2026/11/26 20:48:42 by dcresce          ###   ########.ch       */
+/*   Created: 2026/11/27 14:34:21 by dcresce           #+#    #+#             */
+/*   Updated: 2026/11/27 14:34:28 by dcresce          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 # define STRUCTS_H
 
 # include <stdbool.h>
+
+typedef struct s_column
+{
+	double	distance;
+	double	wall_x;
+	t_id	texture_id;
+}	t_column;
 
 typedef struct s_check_id
 {
